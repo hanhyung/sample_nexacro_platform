@@ -176,7 +176,9 @@ this.Grid00_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
 this.sample_dataset_sort_nexacro14_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 {
 	//this.ds_sort.set_keystring("G:+column1-column2");
-	this.ds_sort.set_keystring("G:COL1,-COL2");
+	//this.Grid00.setCellProperty("body", 0, "suppress", "1");
+	this.ds_sort.set_keystring("G:COL0");
+	
 
 }
 ]]></Script>

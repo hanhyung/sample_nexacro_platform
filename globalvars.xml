@@ -34,7 +34,7 @@
   <Variable id="gvHistory"/>
   <Variable id="gvHome" initval="Base::nexacro_sample_code.xfdl"/>
   <Variable id="gvResult"/>
-  <Variable id="gvVersion" initval="14.0.0.703"/>
+  <Variable id="gvVersion" initval="14.0.0.900"/>
   <Variable id="gvHomeName" initval="More Sample"/>
   <Variable id="gvDebug" initval="true"/>
 </GlobalVariables>
