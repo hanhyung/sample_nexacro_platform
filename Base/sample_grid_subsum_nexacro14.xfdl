@@ -4,7 +4,7 @@
   <Form id="sample_grid_subsum_nexacro14" classname="sample_grid_subsum_nexacro" left="0" top="0" width="1024" height="768" titletext="Grid &gt; subsum" style="font:9 Arial;">
     <Layouts>
       <Layout>
-        <Grid id="Grid00" taborder="0" binddataset="ds_subsum" useinputpanel="false" autofittype="col" left="16" top="96" height="386" width="480" style="align:center middle;">
+        <Grid id="Grid00" taborder="0" binddataset="ds_total" useinputpanel="false" autofittype="col" left="16" top="96" height="386" width="480" style="align:center middle;">
           <Formats>
             <Format id="default">
               <Columns>
@@ -30,7 +30,7 @@
                 <Cell col="3" style="background2: ;" text="bind:COL4" suppressalign="first"/>
               </Band>
             </Format>
-            <Format id="format_subsum">
+            <Format id="format_total">
               <Columns>
                 <Column size="70"/>
                 <Column size="80"/>
@@ -52,8 +52,8 @@
               </Band>
               <Band id="body">
                 <Cell/>
-                <Cell col="1" style="background2: ;" text="bind:COL1" suppress="0"/>
-                <Cell col="2" style="background2: ;" text="bind:COL2" suppress="0"/>
+                <Cell col="1" style="background2: ;" text="bind:COL1" suppress="1" suppressalign="middle,over"/>
+                <Cell col="2" style="background2: ;" text="bind:COL2" suppress="2" suppressalign="middle,over"/>
                 <Cell col="3" style="background2: ;" text="bind:COL3"/>
                 <Cell col="4" style="background2: ;" text="bind:COL4"/>
               </Band>
@@ -79,7 +79,7 @@
       </Layout>
     </Layouts>
     <Objects>
-      <Dataset id="ds_subsum" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+      <Dataset id="ds_total" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
         <ColumnInfo>
           <Column type="STRING" size="255" id="COL1"/>
           <Column type="STRING" size="256" id="COL2"/>
@@ -91,13 +91,13 @@
             <Col id="COL1">Car</Col>
             <Col id="COL2">Lamborghini</Col>
             <Col id="COL3">Aventador</Col>
-            <Col id="COL4">1</Col>
+            <Col id="COL4">11</Col>
           </Row>
           <Row>
             <Col id="COL1">Car</Col>
             <Col id="COL2">Lamborghini</Col>
             <Col id="COL3">Murcielago</Col>
-            <Col id="COL4">2</Col>
+            <Col id="COL4">19</Col>
           </Row>
           <Row>
             <Col id="COL1">Car</Col>
@@ -115,13 +115,13 @@
             <Col id="COL1">Motorcycle</Col>
             <Col id="COL2">Ducati</Col>
             <Col id="COL3">1299 Panigale</Col>
-            <Col id="COL4">5</Col>
+            <Col id="COL4">25</Col>
           </Row>
           <Row>
             <Col id="COL1">Motorcycle</Col>
             <Col id="COL2">Ducati</Col>
             <Col id="COL3">Monster 821 Dark</Col>
-            <Col id="COL4">6</Col>
+            <Col id="COL4">5</Col>
           </Row>
           <Row>
             <Col id="COL1">Motorcycle</Col>
@@ -142,7 +142,7 @@
 Grid: 합계 및 소계
 
 그리드 셀의 suppress 속성과 데이터셋의 keystring 속성을 사용하여
-그리드의 내용을 그룹화, 정렬하여 소계(subtotal)를 구하고
+그리드의 내용을 그룹화하여 소계(subtotal)를 구하고
 getSum 메소드를 사용하여 합계(total)를 구한다.
 */
 
@@ -150,20 +150,11 @@ getSum 메소드를 사용하여 합계(total)를 구한다.
 this.SetGrid = function()
 {
 	/* setting for pre-defined grid format */
-	this.Grid00.set_formatid("format_subsum");
-	
-	/* setting suppress related properties */
-	this.Grid00.setCellProperty("body", 1, "suppressalign", "middle,over");
-	this.Grid00.setCellProperty("body", 2, "suppressalign", "middle,over");
+	this.Grid00.set_formatid("format_total");
 
-	this.Grid00.setCellProperty("body", 1, "suppress", "1");
-	this.Grid00.setCellProperty("body", 2, "suppress", "2");
-	
-
+		
 	/* setting the cell properties of the rowlevel column */
 	this.Grid00.setCellProperty("body", 0, "text", "expr:dataset.getRowLevel(currow)");
-	this.Grid00.setCellProperty("body", 0, "background", "");
-	this.Grid00.setCellProperty("body", 0, "background2", "");
 	
 	/* setting the cell properties of the column 1 */
 	this.Grid00.setCellProperty("body", 1, "text", "expr:dataset.getRowLevel(currow) == 0 ? COL1 : dataset.getColumn(currow-dataset.getRowLevel(currow), 'COL1')");
@@ -172,17 +163,18 @@ this.SetGrid = function()
 	
 	/* setting the cell properties of the column 2 */
 	this.Grid00.setCellProperty("body", 2, "text", "expr:dataset.getRowLevel(currow) < 2 ? dataset.getColumn(currow-dataset.getRowLevel(currow), 'COL2') : dataset.getColumn(currow-dataset.getRowLevel(currow), 'COL1')");
-	this.Grid00.setCellProperty("body", 2, "background", "EXPR(dataset.getRowLevel(currow) !== 2 ? 'lightblue' : 'lightgreen')");
-	this.Grid00.setCellProperty("body", 2, "background2", "EXPR(dataset.getRowLevel(currow) !== 2 ? 'lightblue' : 'lightgreen')");
+	this.Grid00.setCellProperty("body", 2, "background", "expr:dataset.getRowLevel(currow) !== 2 ? 'lightblue' : 'lightgreen'");
+	this.Grid00.setCellProperty("body", 2, "background2", "expr:dataset.getRowLevel(currow) !== 2 ? 'lightblue' : 'lightgreen'");
 	
 	/* setting the cell properties of the column 3 */
 	this.Grid00.setCellProperty("body", 3, "text", "expr:dataset.getRowLevel(currow) == 0 ? COL3 : 'SUBTOTAL'");
-	this.Grid00.setCellProperty("body", 3, "background", "EXPR(dataset.getRowLevel(currow) == 1 ? 'lightblue' : (dataset.getRowLevel(currow) == 2 ? 'lightgreen' : ''))");
-	this.Grid00.setCellProperty("body", 3, "background2", "EXPR(dataset.getRowLevel(currow) == 1 ? 'lightblue' : (dataset.getRowLevel(currow) == 2 ? 'lightgreen' : ''))");	
+	this.Grid00.setCellProperty("body", 3, "background", "expr:dataset.getRowLevel(currow) == 1 ? 'lightblue' : (dataset.getRowLevel(currow) == 2 ? 'lightgreen' : '')");
+	this.Grid00.setCellProperty("body", 3, "background2", "expr:dataset.getRowLevel(currow) == 1 ? 'lightblue' : (dataset.getRowLevel(currow) == 2 ? 'lightgreen' : '')");
 
 	/* setting the cell properties of the column 4 */
-	this.Grid00.setCellProperty("body", 4, "background", "EXPR(dataset.getRowLevel(currow) == 1 ? 'lightblue' : (dataset.getRowLevel(currow) == 2 ? 'lightgreen' : ''))");
-	this.Grid00.setCellProperty("body", 4, "background2", "EXPR(dataset.getRowLevel(currow) == 1 ? 'lightblue' : (dataset.getRowLevel(currow) == 2 ? 'lightgreen' : ''))");	
+	this.Grid00.setCellProperty("body", 4, "background", "expr:dataset.getRowLevel(currow) == 1 ? 'lightblue' : (dataset.getRowLevel(currow) == 2 ? 'lightgreen' : '')");
+	this.Grid00.setCellProperty("body", 4, "background2", "expr:dataset.getRowLevel(currow) == 1 ? 'lightblue' : (dataset.getRowLevel(currow) == 2 ? 'lightgreen' : '')");
+
 
 	/* setting the total value of the summary band */
 	this.Grid00.setCellProperty("summary", 1, "text", "expr:dataset.getSum('COL4')");
@@ -197,7 +189,7 @@ this.btn_total_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	this.SetGrid();
 
 	/* initializing keystring property */
-	this.ds_subsum.set_keystring("");
+	this.ds_total.set_keystring("");
 
 
  	this.btn_total.style.set_font("9 Arial bold");
@@ -214,7 +206,7 @@ this.btn_subtotal_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	this.SetGrid();
 	
 	/* grouping by column */
-	this.ds_subsum.set_keystring("G:COL1,-COL2");
+	this.ds_total.set_keystring("G:COL1,-COL2");
 
 
  	this.btn_total.style.set_font("9 Arial");
@@ -231,7 +223,7 @@ this.btn_reset_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	this.Grid00.set_formatid("");
 
 	/* initializing keystring property */
-	this.ds_subsum.set_keystring("");
+	this.ds_total.set_keystring("");
 	
 	
 	this.btn_total.style.set_font("9 Arial");
