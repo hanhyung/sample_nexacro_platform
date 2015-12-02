@@ -19,19 +19,17 @@
       </Layout>
     </Layouts>
     <Script type="xscript5.0"><![CDATA[/*
-ProgressBar: 진행표시줄의 설정과 동작
+ProgressBar: Settings and actions of a progress bar
 
-진행표시줄 컴포넌트를 설정하고 setTimer 메소드로 타이머를 설정하여
-특정 시간 간격마다 ontimer 이벤트를 발생시킨다.
-이벤트 발생시마다 호출되는 ontimer 이벤트에서는
-stepIt 메소드를 호출하여 진행표시줄을 step 속성에 설정한 값만큼 증가시킨다.
+After a ProgressBar component is created, the setTimer method is used to set a timer and trigger the ontimer event at certain intervals. 
+The ontimer event will call the stepIt method, which will extend the progress bar as much as specified in the step property.
 */
 
 
-/* 진행표시줄 컴포넌트와 타이머 설정 */
+/* Default settings and a timer setting */
 this.btn_start_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {	
-	/* 진행표시줄의 초기값 설정 */
+	/* Default settings for the progress bars */
 	this.ProgressBar00.set_pos(0);
 	this.ProgressBar00.set_min(0);
 	this.ProgressBar00.set_max(100);
@@ -43,23 +41,23 @@ this.btn_start_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	this.ProgressBar01.set_step(4);
 	this.ProgressBar01.style.set_direction("backward");
 	
-	/* 타이머 설정 */
+	/* Timer setting */
 	this.setTimer(0, 50);
 	
 }
 
-/* ontimer 이벤트 핸들러 */
+/* ontimer event handler */
 this.sample_progressbar_nexacro_ontimer = function(obj:Form, e:nexacro.TimerEventInfo)
 {
 	if(e.timerid == 0)
 	{
-		/* 진행표시줄의 pos이 100%에 이르면 타이머 종료 */
+		/* Ends the timer when the value of the pos property reaches 100%. */
 		if(this.ProgressBar00.pos == 100 && this.ProgressBar01.pos == 100)
 		{
 			this.killTimer(0);
 		}
 
-		/* 진행표시줄 증가 */
+		/* Increases the progresses. */
 		this.ProgressBar00.stepIt();
 		
 		this.ProgressBar01.stepIt();
@@ -67,7 +65,7 @@ this.sample_progressbar_nexacro_ontimer = function(obj:Form, e:nexacro.TimerEven
 	
 }
 
-/* 진행표시줄 및 타이머 재설정 */
+/* Resetting the progress bars and timer */
 this.btn_reset_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	this.ProgressBar00.set_pos(0);
