@@ -4,7 +4,7 @@
   <Form id="sample_menu_nexacro14" classname="sample_menu_nexacro" left="0" top="0" width="1024" height="768" titletext="Menu" onload="sample_menu_nexacro_onload">
     <Layouts>
       <Layout>
-        <Menu id="Menu00" taborder="0" left="16" top="64" height="32" width="640" onmenuclick="Menu00_onmenuclick" style="background:burlywood;font:10 Arial;"/>
+        <Menu id="Menu00" taborder="0" left="16" top="64" height="32" width="640" onmenuclick="Menu00_onmenuclick" style="background:burlywood;font:10 Arial;" innerdataset="@ds_menu" captioncolumn="CAPTION" hotkeycolumn="HOTKEY" idcolumn="ID" levelcolumn="LEVEL" enablecolumn="ENABLE"/>
         <Div id="Div00" taborder="2" left="16" top="96" height="480" width="640" text="Please click the menu." style="font:10 Arial;">
           <Layouts>
             <Layout/>
@@ -99,33 +99,10 @@
     <Script type="xscript5.0"><![CDATA[/*
 Menu: 메뉴를 구성하는 방법
 
-idcolumn, levelcolumn, captioncolumn 속성을 설정하여 메뉴를 구성할 수 있다.
-메뉴를 구성하기 위해서 idcolumn, levelcolumn, captioncolumn은 반드시 설정해야 한다.
+메뉴는 idcolumn, levelcolumn, captioncolumn 속성을 설정하여 구성할 수 있다.
+idcolumn, levelcolumn, captioncolumn 속성은 필수 항목이다.
 */
 
-
-/* 메뉴 구성 */
-this.sample_menu_nexacro_onload = function(obj:Form, e:nexacro.LoadEventInfo)
-{
-	/* binding menu information to menu component */
-	this.Menu00.setInnerDataset(this.ds_menu);
-	
-	/*
-	Dataset menu information is set in the properties of the menu component.
-	It's Required properties.
-	*/
-	this.Menu00.set_captioncolumn("CAPTION");
-	this.Menu00.set_idcolumn("ID");
-	this.Menu00.set_levelcolumn("LEVEL");
-	
-	/*
-	Dataset menu information is set in the properties of the menu component.
-	It's Option properties.
-	*/
-	this.Menu00.set_hotkeycolumn("HOTKEY");
-	this.Menu00.set_enablecolumn("ENABLE");
-	
-}
 
 /* 메뉴를 클릭했을 때 호출되는 이벤트 핸들러 */
 this.Menu00_onmenuclick = function(obj:Menu, e:nexacro.MenuClickEventInfo)
@@ -142,14 +119,6 @@ this.Menu00_onmenuclick = function(obj:Menu, e:nexacro.MenuClickEventInfo)
 			this.Div00.set_text(e.id + " clicked.");
 		}
 	}
-}
-
-
-/* 샘플 리스트로 이동 */
-this.Div00_cb_list_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
-{	
-	this.go(application.ds_sample_url.getColumn(e.postindex, "URL"));
-	
 }]]></Script>
   </Form>
 </FDL>

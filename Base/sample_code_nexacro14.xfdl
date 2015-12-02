@@ -4,7 +4,7 @@
   <Form id="sample_code_nexacro14" classname="nexacro_sample_code_new" left="0" top="0" width="1024" height="768" titletext="HOME">
     <Layouts>
       <Layout>
-        <Grid id="Grid_url" taborder="0" useinputpanel="false" left="16" top="88" height="124" binddataset="ds_sample_url" autosizingtype="none" autofittype="col" cellsizingtype="col" oncelldblclick="Grid00_oncelldblclick" width="600" extendsizetype="none">
+        <Grid id="Grid_url" taborder="0" useinputpanel="false" left="16" top="88" height="221" binddataset="ds_sample_url" autosizingtype="col" autofittype="col" cellsizingtype="col" oncelldblclick="Grid00_oncelldblclick" width="600" extendsizetype="none" autosizebandtype="body">
           <Formats>
             <Format id="default">
               <Columns>

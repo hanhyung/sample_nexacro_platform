@@ -10,19 +10,39 @@
     </ColumnInfo>
     <Rows>
       <Row>
+        <Col id="CATEGORY">Dataset &gt; sort</Col>
+        <Col id="URL">Base::sample_dataset_sort_nexacro14.xfdl</Col>
         <Col id="ID">1</Col>
+      </Row>
+      <Row>
+        <Col id="ID">2</Col>
         <Col id="CATEGORY">Grid &gt; Cell &gt; display</Col>
         <Col id="URL">Base::sample_grid_cell_display_nexacro14.xfdl</Col>
       </Row>
       <Row>
-        <Col id="ID">2</Col>
-        <Col id="CATEGORY">Grid &gt; Cell &gt; edit</Col>
-        <Col id="URL">Base::sample_grid_cell_edit_nexacro14.xfdl</Col>
+        <Col id="CATEGORY">Grid &gt; select</Col>
+        <Col id="URL">Base::sample_grid_select_nexacro14.xfdl</Col>
+        <Col id="ID">3</Col>
       </Row>
       <Row>
         <Col id="ID">4</Col>
         <Col id="CATEGORY">Grid &gt; subsum</Col>
         <Col id="URL">Base::sample_grid_subsum_nexacro14.xfdl</Col>
+      </Row>
+      <Row>
+        <Col id="CATEGORY">MaskEdit</Col>
+        <Col id="URL">Base::sample_maskedit_nexacro14.xfdl</Col>
+        <Col id="ID">5</Col>
+      </Row>
+      <Row>
+        <Col id="CATEGORY">Menu</Col>
+        <Col id="URL">Base::sample_menu_nexacro14.xfdl</Col>
+        <Col id="ID">6</Col>
+      </Row>
+      <Row>
+        <Col id="CATEGORY">ProgressBar</Col>
+        <Col id="URL">Base::sample_progressbar_nexacro14.xfdl</Col>
+        <Col id="ID">7</Col>
       </Row>
       <Row>
         <Col id="ID">8</Col>
