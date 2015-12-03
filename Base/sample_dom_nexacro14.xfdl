@@ -4,14 +4,6 @@
   <Form id="sample_dom_nexacro14" classname="sample_dom_nexacro" left="0" top="0" width="1024" height="768" titletext="DOM" onload="sample_dom_nexacro_onload">
     <Layouts>
       <Layout>
-        <Div id="Div00" taborder="0" text="Div00" left="7" top="7" right="6" height="49">
-          <Layouts>
-            <Layout width="1008" height="49">
-              <ImageViewer id="ImageViewer00" taborder="0" image="URL('Image::img_imgviewer_N.png')" stretch="fit" left="8" top="5" width="140" height="35" style="border:1 none #6b6b6bff ;"/>
-            </Layout>
-          </Layouts>
-        </Div>
-        <Static id="Static04" taborder="7" text="XML Document" left="16" top="66" width="200" height="60" style="font:16 Verdana;"/>
         <TextArea id="TextArea00" taborder="8" left="16" top="118" width="720" height="216" style="background:#ffffffff;" wordwrap="english"/>
         <Grid id="Grid00" taborder="9" useinputpanel="false" left="16" top="388" height="236" width="720" style="background:#ffffffff;border:1 solid #838383ff,1 solid #c9c6c3ff,1 solid #c9c6c3ff,1 solid #c9c6c3ff;" treeusecheckbox="false" treeinitstatus="expand,null">
           <Formats>
@@ -30,7 +22,14 @@
         </Grid>
         <Static id="Static05" taborder="10" text="DOM Information" left="16" top="336" width="200" height="60" style="font:16 Verdana;"/>
         <Button id="btn_parse_dom" taborder="14" text="Parsing" onclick="btn_parse_dom_onclick" left="604" top="80" width="120" height="32" style="font:9 Arial;"/>
-        <Static id="stt_version" taborder="15" text="Version" top="15" height="32" position="absolute" right="21" width="160" style="align:right middle;font:9 Verdana;" expr="expr:&quot;Version: &quot; + application.gvVersion"/>
+        <Div id="Div00" taborder="15" text="Div00" left="7" top="7" right="0.78%" height="49">
+          <Layouts>
+            <Layout width="1008" height="49">
+              <ImageViewer id="ImageViewer00" taborder="2" image="URL('Image::img_imgviewer_N.png')" stretch="fit" left="8" top="5" width="140" height="35" style="border:1 none #6b6b6bff ;"/>
+              <Static id="stt_version" taborder="3" expr="expr:&quot;Version: &quot; + application.gvVersion" text="Version" top="7" right="13" width="160" height="32" style="align:right middle;font:9 Verdana;"/>
+            </Layout>
+          </Layouts>
+        </Div>
       </Layout>
     </Layouts>
     <Objects>
