@@ -5,7 +5,7 @@
     <Layouts>
       <Layout>
         <ProgressBar id="ProgressBar00" taborder="0" text="ProgressBar00" left="16" top="96" height="32" width="400"/>
-        <ProgressBar id="ProgressBar01" taborder="1" text="ProgressBar01" left="16" top="132" height="28" width="400"/>
+        <ProgressBar id="ProgressBar01" taborder="1" text="ProgressBar01" left="16" top="132" height="28" width="400" step="4" style="direction:backward;"/>
         <Button id="btn_start" taborder="2" text="START" onclick="btn_start_onclick" left="16" top="168" height="32" width="120" style="font:9 Arial;"/>
         <Button id="btn_reset" taborder="3" text="RESET" onclick="btn_reset_onclick" left="140" top="168" height="32" width="120" style="font:9 Arial;"/>
         <Div id="Div00" taborder="4" text="Div00" left="7" top="7" right="6" height="49">
@@ -26,27 +26,15 @@ The ontimer event will call the stepIt method, which will extend the progress ba
 */
 
 
-/* Default settings and a timer setting */
+/* timer 생성 */
 this.btn_start_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {	
-	/* Default settings for the progress bars */
-	this.ProgressBar00.set_pos(0);
-	this.ProgressBar00.set_min(0);
-	this.ProgressBar00.set_max(100);
-	this.ProgressBar00.set_step(1);
-	
-	this.ProgressBar01.set_pos(0);
-	this.ProgressBar01.set_min(0);
-	this.ProgressBar01.set_max(100);
-	this.ProgressBar01.set_step(4);
-	this.ProgressBar01.style.set_direction("backward");
-	
-	/* Timer setting */
+	/* ontimer 이벤트를 50ms마다 발생하게 설정 */
 	this.setTimer(0, 50);
 	
 }
 
-/* ontimer event handler */
+/* ontimer event handler: 50ms마다 호출되어 진행표시줄을 증가시킨다. */
 this.sample_progressbar_nexacro_ontimer = function(obj:Form, e:nexacro.TimerEventInfo)
 {
 	if(e.timerid == 0)
@@ -58,8 +46,7 @@ this.sample_progressbar_nexacro_ontimer = function(obj:Form, e:nexacro.TimerEven
 		}
 
 		/* Increases the progresses. */
-		this.ProgressBar00.stepIt();
-		
+		this.ProgressBar00.stepIt();		
 		this.ProgressBar01.stepIt();
 	}
 	
@@ -71,6 +58,7 @@ this.btn_reset_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	this.ProgressBar00.set_pos(0);
 	this.ProgressBar01.set_pos(0);
 	
+	/* timer 제거 */
 	this.killTimer(0);
 	
 }]]></Script>
