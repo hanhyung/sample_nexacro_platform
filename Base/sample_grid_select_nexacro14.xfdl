@@ -31,14 +31,6 @@
         </Grid>
         <Static id="Static00" taborder="5" left="96" top="64" height="32" style="color:red;font:10 Verdana;" width="240"/>
         <Static id="Static01" taborder="6" text="selecttype:" left="16" top="64" height="32" width="72" style="font:9 Verdana;"/>
-        <Div id="Div01" taborder="16" left="6" top="7" right="7" height="49" tabstop="false">
-          <Layouts>
-            <Layout width="1008" height="49">
-              <ImageViewer id="ImageViewer00" taborder="0" image="URL('Image::img_imgviewer_N.png')" stretch="fit" left="8" top="5" width="140" height="35" style="border:1 none #6b6b6bff ;"/>
-            </Layout>
-          </Layouts>
-        </Div>
-        <Static id="stt_version" taborder="17" expr="expr:&quot;Version: &quot; + application.gvVersion" text="Version" top="15" right="21" width="160" height="32" style="align:right middle;font:9 Verdana;"/>
         <Grid id="Grid01" taborder="1" binddataset="ds01" useinputpanel="false" autofittype="col" left="224" top="96" width="200" height="122" selecttype="cell" onselectchanged="Grid01_onselectchanged">
           <Formats>
             <Format id="default">
@@ -118,6 +110,14 @@
         <Static id="Static03" taborder="22" text="cell" left="288" top="216" width="72" height="32" style="align:center middle;font:9 Verdana;"/>
         <Static id="Static04" taborder="23" text="multirow" left="496" top="216" width="72" height="32" style="align:center middle;font:9 Verdana;"/>
         <Static id="Static05" taborder="24" text="area" left="704" top="216" width="72" height="32" style="align:center middle;font:9 Verdana;"/>
+        <Div id="Div00" taborder="25" text="Div00" left="7" top="7" right="0.78%" height="49">
+          <Layouts>
+            <Layout width="1008" height="49">
+              <ImageViewer id="ImageViewer00" taborder="2" image="URL('Image::img_imgviewer_N.png')" stretch="fit" left="8" top="5" width="140" height="35" style="border:1 none #6b6b6bff ;"/>
+              <Static id="stt_version" taborder="3" expr="expr:&quot;Version: &quot; + application.gvVersion" text="Version" top="7" right="13" width="160" height="32" style="align:right middle;font:9 Verdana;"/>
+            </Layout>
+          </Layouts>
+        </Div>
       </Layout>
     </Layouts>
     <Objects>
@@ -262,7 +262,7 @@
 Grid: 다중, 영역 선택과 선택 영역 정보 얻기
 
 그리드의 selecttype 속성을 설정하면
-사용자는 여러가지 방식으로 셀을 선택할 수 있다.
+사용자는 여러 방식으로 셀을 선택할 수 있다.
 */
 
 
@@ -333,6 +333,11 @@ this.Grid03_onselectchanged = function(obj:Grid, e:nexacro.GridSelectEventInfo)
 	
 	trace(sMsg);
 	
-}]]></Script>
+}
+this.stt_version_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+	
+}
+]]></Script>
   </Form>
 </FDL>

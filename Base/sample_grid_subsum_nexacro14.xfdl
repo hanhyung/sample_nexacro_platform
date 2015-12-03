@@ -71,10 +71,10 @@
           <Layouts>
             <Layout width="1008" height="49">
               <ImageViewer id="ImageViewer00" taborder="0" image="URL('Image::img_imgviewer_N.png')" stretch="fit" left="8" top="5" width="140" height="35" style="border:1 none #6b6b6bff ;"/>
+              <Static id="stt_version" taborder="5" expr="expr:&quot;Version: &quot; + application.gvVersion" text="Version" top="7" right="13" width="160" height="32" style="align:right middle;font:9 Verdana;"/>
             </Layout>
           </Layouts>
         </Div>
-        <Static id="stt_version" taborder="5" expr="expr:&quot;Version: &quot; + application.gvVersion" text="Version" top="15" right="21" width="160" height="32" style="align:right middle;font:9 Verdana;"/>
         <Button id="btn_reset" taborder="6" text="Reset" onclick="btn_reset_onclick" left="303" top="496" width="136" height="32" style="font:9 Arial;"/>
       </Layout>
     </Layouts>

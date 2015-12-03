@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="sample_combo_nexacro" classname="sample_combo_nexacro" left="0" top="0" width="1024" height="768" titletext="Combo" onload="sample_combo_nexacro_onload">
+    <Layouts>
+      <Layout>
+        <Combo id="Combo00" taborder="0" text="male" left="16" top="96" right="80.18%" height="20" innerdataset="@ds_combo" codecolumn="CODE" datacolumn="VALUE" index="0" value="m"/>
+        <Button id="btn_search" taborder="1" text="search" onclick="btn_search_onclick" left="16" top="162" right="85.45%" height="24"/>
+        <Button id="btn_filter" taborder="2" text="filter" onclick="btn_filter_onclick" left="16" top="194" right="85.45%" height="24"/>
+        <Button id="btn_dropdown" taborder="3" text="dropdown" onclick="btn_dropdown_onclick" left="16" top="226" right="85.45%" height="24"/>
+        <Static id="Static00" taborder="4" text="please select search method" left="16" top="128" right="76.66%" height="26" style="font:10 Verdana;"/>
+        <Static id="Static01" taborder="5" text="dropdown" left="121" top="64" right="73.14%" height="30" style="color:red;font:10 Verdana;"/>
+        <Static id="Static02" taborder="6" text="Search mode:" left="16" top="64" right="86.13%" height="29" style="font:10 Verdana;"/>
+        <Div id="Div00" taborder="7" text="Div00" left="7" top="7" right="0.78%" height="49">
+          <Layouts>
+            <Layout width="1008" height="49">
+              <ImageViewer id="ImageViewer00" taborder="0" image="URL('Image::img_imgviewer_N.png')" stretch="fit" left="8" top="5" width="140" height="35" style="border:1 none #6b6b6bff ;"/>
+              <Static id="stt_version" taborder="1" text="Version" top="7" height="32" style="align:right middle;font:9 Verdana;" width="160" right="13" expr="expr:&quot;Version: &quot; + application.gvVersion"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_combo" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column type="STRING" size="255" id="CODE"/>
+          <Column type="STRING" size="255" id="VALUE"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">m</Col>
+            <Col id="VALUE">male</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">f</Col>
+            <Col id="VALUE">female</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">b</Col>
+            <Col id="VALUE">boy</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">g</Col>
+            <Col id="VALUE">girl</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">t</Col>
+            <Col id="VALUE">transgender</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">t</Col>
+            <Col id="VALUE">transformer</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/*
+Combo:
+
+콤보의 type 속성 설정에 따라
+사용자는 여러 방식으로 아이템을 선택할 수 있다.
+*/
+
+
+this.btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Combo00.set_type("search");
+
+	this.Static01.set_text("search");
+
+}
+
+this.btn_filter_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Combo00.set_type("filter");
+
+	this.Static01.set_text("filter");
+
+}
+
+this.btn_dropdown_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.Combo00.set_type("dropdown");
+
+	this.Static01.set_text("dropdown");
+
+}
+]]></Script>
+  </Form>
+</FDL>
