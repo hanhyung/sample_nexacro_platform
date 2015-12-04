@@ -4,12 +4,20 @@
   <Form id="sample_listbox_nexacro" classname="sample_listbox_nexacro" left="0" top="0" width="1024" height="768" titletext="ListBox" onload="sample_listbox_nexacro_onload">
     <Layouts>
       <Layout>
-        <ListBox id="ListBox00" taborder="0" left="0.88%" top="54" right="80.76%" height="100"/>
-        <Button id="Button00" taborder="2" text="multi select" left="20.31%" top="54" right="66.8%" height="24" onclick="Button00_onclick"/>
-        <Button id="Button01" taborder="3" text="single select" left="20.31%" top="84" right="66.8%" height="24" onclick="Button01_onclick"/>
-        <Static id="Static00" taborder="4" text="Selection mode:" left="0.88%" top="16" right="85.45%" height="29" style="font:bold 10 Dotum;"/>
-        <Static id="Static01" taborder="5" text="single" left="14.84%" top="16" right="70.12%" height="30" style="color:red;font:bold 10 Dotum;"/>
-        <Button id="Button02" taborder="6" text="selected number" onclick="Button02_onclick" left="0.88%" top="168" right="86.23%" height="24"/>
+        <ListBox id="ListBox00" taborder="0" left="16" top="96" height="120" innerdataset="@ds_sex" codecolumn="CODE" datacolumn="VALUE" index="-1" width="200"/>
+        <Button id="Button00" taborder="2" text="multi select" left="223" top="96" height="32" onclick="Button00_onclick" width="120"/>
+        <Button id="Button01" taborder="3" text="single select" left="223" top="132" height="32" onclick="Button01_onclick" width="120"/>
+        <Static id="Static00" taborder="4" text="Selection mode:" left="16" top="64" height="32" style="font:10 Verdana;" width="160"/>
+        <Static id="Static01" taborder="5" text="single" left="128" top="64" height="32" style="color:red;font:10 Verdana;" onclick="Static01_onclick" width="160"/>
+        <Button id="Button02" taborder="6" text="selected number" onclick="Button02_onclick" left="16" top="232" height="32" width="120"/>
+        <Div id="Div00" taborder="7" text="Div00" left="7" top="7" right="0.78%" height="49">
+          <Layouts>
+            <Layout width="1008" height="49">
+              <ImageViewer id="ImageViewer00" taborder="2" image="URL('Image::img_imgviewer_N.png')" stretch="fit" left="8" top="5" width="140" height="35" style="border:1 none #6b6b6bff ;"/>
+              <Static id="stt_version" taborder="3" expr="expr:&quot;Version: &quot; + application.gvVersion" text="Version" top="7" right="13" width="160" height="32" style="align:right middle;font:9 Verdana;"/>
+            </Layout>
+          </Layouts>
+        </Div>
       </Layout>
     </Layouts>
     <Objects>
@@ -47,13 +55,6 @@
       </Dataset>
     </Objects>
     <Script type="xscript5.0"><![CDATA[
-this.sample_listbox_nexacro_onload = function(obj:Form, e:nexacro.LoadEventInfo)
-{
-	this.ListBox00.set_codecolumn("CODE");
-	this.ListBox00.set_datacolumn("VALUE");
-	this.ListBox00.setInnerDataset(this.ds_sex);
-	
-}
 
 this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
