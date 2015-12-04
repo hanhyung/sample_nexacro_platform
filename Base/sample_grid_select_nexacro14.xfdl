@@ -334,10 +334,6 @@ this.Grid03_onselectchanged = function(obj:Grid, e:nexacro.GridSelectEventInfo)
 	trace(sMsg);
 	
 }
-this.stt_version_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
-{
-	
-}
 ]]></Script>
   </Form>
 </FDL>

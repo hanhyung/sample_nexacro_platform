@@ -4,7 +4,7 @@
   <Form id="sample_calendar_nexacro" classname="sample_calendar_nexacro" left="0" top="0" width="1024" height="768" titletext="sample calendar" onload="sample_calendar_nexacro_onload">
     <Layouts>
       <Layout>
-        <Grid id="Grid_calendar" taborder="0" binddataset="ds_calendar" useinputpanel="false" autofittype="col" onheadclick="Grid_calendar_onheadclick" left="16" top="96" height="425" selecttype="cell" width="480" autosizingtype="none">
+        <Grid id="Grid_calendar" taborder="0" binddataset="ds_calendar" useinputpanel="false" autofittype="col" onheadclick="Grid_calendar_onheadclick" left="16" top="96" height="400" selecttype="cell" width="480" autosizingtype="none" cellsizingtype="none" extendsizetype="none">
           <Formats>
             <Format id="default">
               <Columns>
@@ -61,18 +61,6 @@
       </Layout>
     </Layouts>
     <Objects>
-      <Dataset id="ds_color" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
-        <ColumnInfo>
-          <ConstColumn id="ConstColumn0" type="STRING" size="30" value=""/>
-          <Column id="FONTCOLOR0" type="STRING" size="256"/>
-          <Column id="FONTCOLOR1" type="STRING" size="256"/>
-          <Column id="FONTCOLOR2" type="STRING" size="256"/>
-          <Column id="FONTCOLOR3" type="STRING" size="256"/>
-          <Column id="FONTCOLOR4" type="STRING" size="256"/>
-          <Column id="FONTCOLOR5" type="STRING" size="256"/>
-          <Column id="FONTCOLOR6" type="STRING" size="256"/>
-        </ColumnInfo>
-      </Dataset>
       <Dataset id="ds_calendar" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
         <ColumnInfo>
           <Column id="COL_D0" type="STRING" size="256"/>
@@ -89,9 +77,7 @@
 Grid Calendar
 */
 
-////////////////////////////////////////////////////////////////////////////////
-//Global variables
-////////////////////////////////////////////////////////////////////////////////
+
 var strCurrentDate = null;
 
 var enumActionStatus =
@@ -107,41 +93,9 @@ var enumDateStatus =
 	"DAY":2
 };
 
-var enumDay = 
-{
-	"SUNDAY":0,
-	"MONDAY":1,
-	"TUESDAY":2,
-	"WEDNESDAY":3,
-	"THURSDAY":4,
-	"FRIDAY":5,
-	"SATURDAY":6
-};
 
-
-var enumMonth = 
-{
-	"JANUARY":0,
-	"FEBRUARY":1,
-	"MARCH":2,
-	"APRIL":3,
-	"MAY":4,
-	"JUNE":5,
-	"JULY":6,
-	"AUGUST":7,
-	"SEPTEMBER":8,
-	"OCTOBER":9,
-	"NOVEMBER":10,
-	"DECEMBER":11
-};
-
-////////////////////////////////////////////////////////////////////////////////
-//Event handlers
-////////////////////////////////////////////////////////////////////////////////
 this.sample_calendar_nexacro_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 {
-	trace("sample_calendar_nexacro_onload()");
-
 	var strTodayDate = this.fn_getToday();
 	
 	this.fn_setCurrentDate(strTodayDate);
@@ -151,8 +105,6 @@ this.sample_calendar_nexacro_onload = function(obj:Form, e:nexacro.LoadEventInfo
 
 this.Grid_calendar_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
 {
-	trace("Grid_calendar_onheadclick()");
-	
 	if(e.cell === 0)
 	{		
 		this.fn_changeCurrentDate(enumActionStatus.PREV, enumDateStatus.YEAR);
@@ -175,14 +127,8 @@ this.Grid_calendar_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo
 }
 
 
-
-////////////////////////////////////////////////////////////////////////////////
-//Calendar functions
-////////////////////////////////////////////////////////////////////////////////
 this.fn_getToday = function()
 {
-	trace("fn_getToday()");
-	
 	var objDate = new Date();
 	
 	var strNowYear = objDate.getYear().toString();
@@ -195,8 +141,6 @@ this.fn_getToday = function()
 
 this.fn_drawCalendar = function(strDrawDate)
 {
-	trace("fn_drawCalendar()");
-
 	/* Year */
 	var strCurYear = strDrawDate.substr(0, 4);
 	
@@ -213,22 +157,20 @@ this.fn_drawCalendar = function(strDrawDate)
 	
 	
 	/* 일 설정 */
-	var firstDay = this.fn_getFirstDay(strDrawDate);
-	var lastDate = this.fn_getLastDate(strDrawDate);
-	trace("firstDay = " + firstDay);
-	trace("lastDate = " + lastDate);
+	var intFirstDay = this.fn_getFirstDay(strDrawDate);
+	var intLastDate = this.fn_getLastDate(strDrawDate);
 	
 
 	this.ds_calendar.clearData();
 
 	var nRow = this.ds_calendar.addRow();	
 	
-	for(var i=0; i<lastDate; i++)
+	for(var i=0; i<intLastDate; i++)
 	{
-		this.ds_calendar.setColumn(nRow, "COL_D"+firstDay, i+1);
-		
-		firstDay = (firstDay+1)%7;
-		if (firstDay == 0 && i != lastDate)
+		this.ds_calendar.setColumn(nRow, "COL_D"+intFirstDay, i+1);
+				
+		intFirstDay = (intFirstDay+1)%7;
+		if (intFirstDay == 0 && i != intLastDate)
 		{
 			nRow = this.ds_calendar.addRow();
 		}
@@ -239,9 +181,7 @@ this.fn_drawCalendar = function(strDrawDate)
 
 
 this.fn_changeCurrentDate = function(enumActionStatus, enumDateStatus)
-{
-	trace("fn_changeCurrentDate(" + enumActionStatus + ", " + curSetDate + ")");
-	
+{	
 	var strCurYear, strCurMonth, strCurDay;
 	var curSetDate = this.fn_getCurrentDate();
 	
@@ -295,30 +235,37 @@ this.fn_changeCurrentDate = function(enumActionStatus, enumDateStatus)
 	
 }
 
-
+/*
+입력 월의 1일에 해당하는 요일을 반환
+0(Sunday), 1(Monday), 2(Tuesday), 3(Wednesday), 4(Thursday), 5(Friday), 6(Saturday)
+*/
 this.fn_getFirstDay = function(sDate)
 {
 	if (this.fn_isNull(sDate))
 		return -1;
 
-	/* first day of the month */
+	/* 입력 월의 1일 계산 */
 	var dDate = new Date( parseInt(sDate.substr(0,4)), parseInt(sDate.substr(4,2))-1, 1 );
-		
+	
+	/* 1일에 해당하는 요일을 반환 */
 	return new Date(dDate).getDay();
+	
 }
 
-
+/* 입력 월의 마지막 날을 계산 */
 this.fn_getLastDate = function(sDate)
 {
 	if (this.fn_isNull(sDate))
 		return -1;
 
-	/* next month the 1st of entered date */
-	/* 왜 달에 + 1을 안했는데 다음달이지? */
+	/* 입력한 날짜에서 다음달의 1일을 계산 */
 	var dDate = new Date( parseInt(sDate.substr(0,4)), parseInt(sDate.substr(4,2)), 1 );
+	
+	/* 입력한 날짜에서 다음달의 1일을 계산하고 그 날짜에서 하루를 뺌 */
 	dDate = dDate.addDate(-1);	
-		
+	
 	return new Date(dDate).getDate();
+	
 }
 
 
@@ -370,6 +317,7 @@ this.fn_getMonthName = function(intMonth)
 	
 }
 
+
 this.fn_setCurrentDate = function(strDate)
 {
 	this.strCurrentDate = strDate;
@@ -380,12 +328,10 @@ this.fn_setCurrentDate = function(strDate)
 this.fn_getCurrentDate = function()
 {
 	return this.strCurrentDate;
+	
 }
 
 
-////////////////////////////////////////////////////////////////////////////////
-//Other functions
-////////////////////////////////////////////////////////////////////////////////
 this.fn_isNull = function(sValue)
 {
 	if (String(sValue).valueOf() == "undefined")
