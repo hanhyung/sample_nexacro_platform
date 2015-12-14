@@ -1,9 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+파일명: sample_step_nexacro14.xfdl
+
+설명: 폼의 stepcount 속성을 사용한 스텝 기능
+
+주의사항: 
+넥사크로스튜디오에서 프로젝트 파일, 테마 파일, 설정관련 파일없이 단독으로 xfdl 파일만 수행했을 경우에는 디자인 및 정보관련 오류가 발생할 수 있습니다. 이러한 오류는 샘플의 동작에 지장을 주지 않습니다.
+만일 완전한 형태로 샘플 동작을 확인하고 싶다면 github 의 nexacro/sample_nexacro_platform 저장소에서 샘플이 모두 포함된 프로젝트를 다운로드받아 사용하시기 바랍니다.
+-->
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="sample_step_nexacro" classname="sample_step_nexacro" left="0" top="0" width="1024" height="768" titletext="Step">
+  <Form id="sample_step_nexacro14" classname="sample_step_nexacro" left="0" top="0" width="1024" height="768" titletext="Step">
     <Layouts>
-      <Layout stepcount="3">
+      <Layout stepindex="" stepcount="3">
         <Static id="Static00" taborder="0" text="step1" left="16" top="64" height="32" width="80" style="font:10 Verdana;"/>
         <Static id="Static01" taborder="1" text="step2" left="16" top="64" height="32" positionstep="1" width="80" style="font:10 Verdana;"/>
         <Static id="Static02" taborder="2" text="step3" left="16" top="64" height="32" positionstep="2" width="80" style="font:10 Verdana;"/>
@@ -38,6 +47,5 @@
         </Div>
       </Layout>
     </Layouts>
-    <Script type="xscript5.0"><![CDATA[]]></Script>
   </Form>
 </FDL>
