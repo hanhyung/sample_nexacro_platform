@@ -13,7 +13,8 @@ The main purpose of this repository is to provide sample code, making it faster 
 * Nexacro Studio 14.0.0.901(November 27, 2015)
 
 ## 주의사항
-넥사크로스튜디오에서 프로젝트 파일, 테마 파일, 설정관련 파일없이 단독으로 xfdl 파일만 수행했을 경우에는
-디자인 및 정보관련 오류가 발생할 수 있습니다. 이러한 오류는 샘플의 동작에 지장을 주지 않습니다.
+넥사크로스튜디오에서 프로젝트 파일, 테마 파일, 설정관련 파일없이 단독으로 xfdl 파일만 수행했을 경우에는 디자인 및 정보관련 오류가 발생할 수 있습니다. 이러한 오류는 샘플의 동작에 지장을 주지 않습니다.
 
-만일 완전한 형태로 샘플 동작을 확인하고 싶다면 github의 nexacro/sample_nexacro_platform 저장소에서 샘플 및 관련 파일이 모두 포함된 [프로젝트 파일](https://github.com/nexacro/sample_nexacro_platform/archive/master.zip) 다운로드받아 사용하시기 바랍니다.
+만일 완전한 형태로 샘플 동작을 확인하고 싶다면 github의 nexacro/sample_nexacro_platform 저장소에서 샘플 및 관련 파일이 모두 포함된 [프로젝트 파일](https://github.com/nexacro/sample_nexacro_platform/archive/master.zip)을 다운로드하여 사용하시기 바랍니다.
+
+
