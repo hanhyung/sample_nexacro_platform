@@ -9,7 +9,7 @@ Nexacro Platform is a javascript framework for building user interfaces.
 The main purpose of this repository is to provide sample code, making it faster and easier to use.
 
 ## System Requirements
-* Windows XP 이상
+* Windows 2000 SP4 이상
 * Nexacro Studio 14.0.0.901(November 27, 2015)
 
 ## 주의사항
