@@ -128,7 +128,6 @@
           </Row>
         </Rows>
       </Dataset>
-      <VirtualFile id="VirtualFile00"/>
     </Objects>
     <Bind>
       <BindItem id="item0" compid="Calendar00" propid="value" datasetid="ds_edit" columnid="expand"/>
