@@ -8,11 +8,13 @@ Sample Code for Nexacro Platform
 Nexacro Platform is a javascript framework for building user interfaces.
 The main purpose of this repository is to provide sample code, making it faster and easier to use.
 
-
-시스템 요구사항
--------------------
+###시스템 요구사항
 * Windows 2000 SP4 이상
 * Nexacro Studio 14.0.0.901(November 27, 2015)
+
+
+[변경 내역](https://github.com/nexacro/sample_nexacro_platform/blob/master/CHANGELOG.md)
+---------
 
 
 주의사항
