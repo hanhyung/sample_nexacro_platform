@@ -1,6 +1,7 @@
 Sample Code for Nexacro Platform
 ================================
 [![Latest release](https://img.shields.io/badge/Nexacro%20Platform-v14.0.0.901-blue.svg)](https://github.com/nexacro/sample_nexacro_platform/blob/master/CHANGELOG.md)
+
 Nexacro Platform is a javascript framework for building user interfaces.
 The main purpose of this repository is to provide sample code, making it faster and easier to use.
 
