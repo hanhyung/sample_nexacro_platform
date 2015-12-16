@@ -11,9 +11,8 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
   <Form id="sample_combo_nexacro" classname="sample_combo_nexacro" left="0" top="0" width="1024" height="768" titletext="Combo" onload="sample_combo_nexacro_onload">
     <Layouts>
       <Layout>
-        <Combo id="Combo00" taborder="0" text="male" left="16" top="96" height="32" innerdataset="@ds_combo" codecolumn="CODE" datacolumn="VALUE" index="0" value="m" position="absolute" width="240"/>
-        <Static id="Static01" taborder="5" text="dropdown" left="128" top="64" height="32" style="color:red;font:10 Verdana;" position="absolute" width="160"/>
-        <Static id="Static02" taborder="6" text="Search mode:" left="16" top="64" height="32" style="font:10 Verdana;" position="absolute" width="160"/>
+        <Combo id="Combo00" taborder="0" text="male" left="16" top="128" height="32" innerdataset="@ds_combo" codecolumn="CODE" datacolumn="VALUE" index="0" value="m" position="absolute" width="240"/>
+        <Static id="Static02" taborder="6" text="Search type:" left="16" top="96" height="32" style="font:10 Verdana;" position="absolute" width="160"/>
         <Div id="Div00" taborder="7" text="Div00" left="7" top="7" right="0.78%" height="49">
           <Layouts>
             <Layout width="1008" height="49">
@@ -22,7 +21,7 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
             </Layout>
           </Layouts>
         </Div>
-        <Radio id="Radio00" taborder="8" left="115" top="64" height="32" innerdataset="@ds_radio" codecolumn="CODE" datacolumn="VALUE" columncount="3" width="277" value="S" onitemchanged="Radio00_onitemchanged"/>
+        <Radio id="Radio00" taborder="8" left="115" top="96" height="32" innerdataset="@ds_radio" codecolumn="CODE" datacolumn="VALUE" columncount="3" width="300" value="D" onitemchanged="Radio00_onitemchanged"/>
       </Layout>
     </Layouts>
     <Objects>
@@ -65,16 +64,16 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
         </ColumnInfo>
         <Rows>
           <Row>
+            <Col id="CODE">D</Col>
+            <Col id="VALUE">DROPDOWN</Col>
+          </Row>
+          <Row>
             <Col id="CODE">S</Col>
             <Col id="VALUE">SEARCH</Col>
           </Row>
           <Row>
             <Col id="CODE">F</Col>
             <Col id="VALUE">FILTER</Col>
-          </Row>
-          <Row>
-            <Col id="CODE">D</Col>
-            <Col id="VALUE">DROPDOWN</Col>
           </Row>
         </Rows>
       </Dataset>
@@ -83,20 +82,19 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
 {	
 	switch(e.postindex)
 	{
-		case 0:	/* SEARCH */
-			this.Combo00.set_type("search");
-			break;
-		case 1:	/* FILTER */
-			this.Combo00.set_type("filter");
-			break;
-		case 2:	/* DROPDOWN */
+		case 0:	/* DROPDOWN */
 			this.Combo00.set_type("dropdown");
 			break;
+		case 1:	/* SEARCH */
+			this.Combo00.set_type("search");
+			break;
+		case 2:	/* FILTER */
+			this.Combo00.set_type("filter");
+			break;
 		default:
-			trace("UNKNOWN mode");
+			trace("UNKNOWN type");
 	}
 	
-}
-]]></Script>
+}]]></Script>
   </Form>
 </FDL>
