@@ -1,10 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+The contents within a grid cell can be expressed in various formats by setting displaytype property.
+
+샘플 코드 사용에 대한 자세한 정보는 아래 링크를 참조하십시오.
+https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
+-->
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
   <Form id="sample_grid_cell_display_nexacro14" classname="sample_grid_display_nexacro" left="0" top="0" width="1024" height="768" titletext="Grid &gt; Cell &gt; displaytype" onload="sample_grid_cell_display_nexacro14_onload">
     <Layouts>
       <Layout>
-        <Button id="btn_apply_property" taborder="0" text="Applying&#13;&#10;displaytype" left="16" top="253" height="32" onclick="btn_apply_property_onclick" width="120" style="font:9 Arial;"/>
+        <Button id="btn_apply_property" taborder="0" text="Setting &#13;&#10;displaytype" left="16" top="253" height="32" onclick="btn_apply_property_onclick" width="120" style="font:9 Arial;"/>
         <Grid id="Grid00" taborder="3" binddataset="ds_displaytype" useinputpanel="false" left="16" top="96" height="149" autofittype="col" autosizingtype="none" cellsizingtype="col" width="960" treeusecheckbox="false" treeuseexpandkey="true" locale="en_US">
           <Formats>
             <Format id="default">
@@ -85,7 +91,6 @@
           </Row>
         </Rows>
       </Dataset>
-      <Dataset id="ds_null" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false"/>
       <Dataset id="ds_displaytype" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
         <ColumnInfo>
           <Column type="STRING" size="255" id="check"/>
@@ -179,14 +184,7 @@
         </Rows>
       </Dataset>
     </Objects>
-    <Script type="xscript5.0"><![CDATA[/*
-Grid: 
-
-The contents within a grid cell can be expressed in various formats by setting this property.
-*/
-
-
-this.btn_apply_property_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+    <Script type="xscript5.0"><![CDATA[this.btn_apply_property_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	/*
 	The displaytype property of a specified cell in the body band

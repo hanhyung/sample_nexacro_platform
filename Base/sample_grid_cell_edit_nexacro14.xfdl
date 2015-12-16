@@ -1,14 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!-- 
-파일명: sample_grid_cell_edit_nexacro14.xfdl
+그리드 셀의 edittype 속성을 설정하면 셀의 내용을 여러가지 형태로 편집할 수 있다.
 
-설명: 그리드 셀의 내용을 편집하는 방식
-그리드 셀의 edittype 속성을 설정하면 셀의 내용을
-여러가지 형태로 편집할 수 있다.
-
-주의사항: 
-넥사크로스튜디오에서 프로젝트 파일, 테마 파일, 설정관련 파일없이 단독으로 xfdl 파일만 수행했을 경우에는 디자인 및 정보관련 오류가 발생할 수 있습니다. 이러한 오류는 샘플의 동작에 지장을 주지 않습니다.
-만일 완전한 형태로 샘플 동작을 확인하고 싶다면 github 의 nexacro/sample_nexacro_platform 저장소에서 샘플이 모두 포함된 프로젝트를 다운로드받아 사용하시기 바랍니다.
+샘플 코드 사용에 대한 자세한 정보는 아래 링크를 참조하십시오.
+https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
 -->
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
@@ -59,7 +54,7 @@
           </Formats>
         </Grid>
         <Calendar id="Calendar00" taborder="1" type="monthonly" ondayclick="Calendar00_ondayclick" visible="false" left="47.17%" top="123" height="200" width="240" style="dayfont:9 Arial;font:9 Arial;" oneditclick="Calendar00_oneditclick" locale="en_US" value="null" dateformat="yyyy-MM-dd ddd" onmouseleave="Calendar00_onmouseleave"/>
-        <Static id="Static00" taborder="4" text="Input mode:" left="16" top="64" height="32" style="font:10 Verdana;" width="120"/>
+        <Static id="Static00" taborder="4" text="Input status:" left="16" top="64" height="32" style="font:10 Verdana;" width="120"/>
         <Div id="Div00" taborder="6" text="Div00" left="6" top="7" right="0.78%" height="49">
           <Layouts>
             <Layout width="1008" height="49">
@@ -68,7 +63,7 @@
             </Layout>
           </Layouts>
         </Div>
-        <Button id="btn_edit" taborder="7" text="Uneditable" left="104" top="68" height="24" onclick="btn_edit_onclick" width="120" style="color:#333333ff;"/>
+        <Button id="btn_edit" taborder="7" text="Uneditable" left="112" top="68" height="24" onclick="btn_edit_onclick" width="120" style="color:#333333ff;"/>
       </Layout>
     </Layouts>
     <Objects>
