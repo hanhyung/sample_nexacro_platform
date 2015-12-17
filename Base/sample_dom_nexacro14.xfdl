@@ -1,4 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+XML, HTML 파일을 DOM 파서를 사용해 분석한 후 그리드에 트리 형식으로 표현합니다.
+
+샘플 코드 사용에 대한 자세한 정보는 아래 링크를 참조하십시오.
+https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
+-->
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
   <Form id="sample_dom_nexacro14" classname="sample_dom_nexacro" left="0" top="0" width="1024" height="768" titletext="DOM" onload="sample_dom_nexacro_onload">
@@ -52,14 +58,7 @@
         </ColumnInfo>
       </Dataset>
     </Objects>
-    <Script type="xscript5.0"><![CDATA[/*
-DOM:
-
-XML, HTML 파일을 DOM 파서를 사용해 분석한 후 그리드에 트리 형식으로 표현한다.
-*/
-
-
-var bDebug = false;
+    <Script type="xscript5.0"><![CDATA[var bDebug = false;
 
 /* 샘플 XML 문서 */
 var sXML = "<?xml version='1.0' encoding='utf-8'?>\n\

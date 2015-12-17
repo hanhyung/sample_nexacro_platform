@@ -1,4 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+ProgressBar: Settings and actions of a progress bar
+After a ProgressBar component is created, the setTimer method is used to set a timer and trigger the ontimer event at certain intervals. 
+The ontimer event will call the stepIt method, which will extend the progress bar as much as specified in the step property.
+
+샘플 코드 사용에 대한 자세한 정보는 아래 링크를 참조하십시오.
+https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
+-->
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
   <Form id="sample_progressbar_nexacro14" classname="sample_progressbar_nexacro" left="0" top="0" width="1024" height="768" titletext="ProgressBar" onload="sample_progressbar_nexacro_onload" ontimer="sample_progressbar_nexacro_ontimer">
@@ -18,15 +26,7 @@
         </Div>
       </Layout>
     </Layouts>
-    <Script type="xscript5.0"><![CDATA[/*
-ProgressBar: Settings and actions of a progress bar
-
-After a ProgressBar component is created, the setTimer method is used to set a timer and trigger the ontimer event at certain intervals. 
-The ontimer event will call the stepIt method, which will extend the progress bar as much as specified in the step property.
-*/
-
-
-/* timer 생성 */
+    <Script type="xscript5.0"><![CDATA[/* timer 생성 */
 this.btn_start_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {	
 	/* ontimer 이벤트를 50ms마다 발생하게 설정 */

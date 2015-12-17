@@ -1,4 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+Grid: 다중, 영역 선택과 선택 영역 정보 얻기
+그리드의 selecttype 속성을 설정하면
+사용자는 여러 방식으로 셀을 선택할 수 있다.
+
+샘플 코드 사용에 대한 자세한 정보는 아래 링크를 참조하십시오.
+https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
+-->
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
   <Form id="sample_grid_select_nexacro14" classname="sample_grid_select_nexacro" left="0" top="0" width="1024" height="768" titletext="Grid &gt; select">
@@ -258,15 +267,7 @@
         </Rows>
       </Dataset>
     </Objects>
-    <Script type="xscript5.0"><![CDATA[/*
-Grid: 다중, 영역 선택과 선택 영역 정보 얻기
-
-그리드의 selecttype 속성을 설정하면
-사용자는 여러 방식으로 셀을 선택할 수 있다.
-*/
-
-
-/* row selection */
+    <Script type="xscript5.0"><![CDATA[/* row selection */
 this.Grid00_onselectchanged = function(obj:Grid, e:nexacro.GridSelectEventInfo)
 {
 	this.Static00.set_text("row");

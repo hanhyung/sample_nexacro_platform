@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!-- 
-그리드 셀의 edittype 속성을 설정하면 셀의 내용을 여러가지 형태로 편집할 수 있다.
+그리드 셀의 edittype 속성을 설정하면 셀의 내용을 여러가지 방식으로 편집할 수 있다.
 
 샘플 코드 사용에 대한 자세한 정보는 아래 링크를 참조하십시오.
 https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md

@@ -54,9 +54,7 @@
         </Rows>
       </Dataset>
     </Objects>
-    <Script type="xscript5.0"><![CDATA[
-
-this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+    <Script type="xscript5.0"><![CDATA[this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	this.Static01.set_text("multi");
 	

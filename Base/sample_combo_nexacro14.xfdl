@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
 콤보의 type 속성 설정에 따라
-사용자는 여러 방식으로 아이템을 선택할 수 있다.
+사용자는 3가지 방식으로 콤보내의 아이템을 검색 및 선택할 수 있다.
 
 샘플 코드 사용에 대한 자세한 정보는 아래 링크를 참조하십시오.
 https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md

@@ -1,4 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Grid: 합계 및 소계
+그리드 셀의 suppress 속성과 데이터셋의 keystring 속성을 사용하여
+그리드의 내용을 그룹화하여 소계(subtotal)를 구하고
+getSum 메소드를 사용하여 합계(total)를 구한다.
+
+샘플 코드 사용에 대한 자세한 정보는 아래 링크를 참조하십시오.
+https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
+-->
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
   <Form id="sample_grid_subsum_nexacro14" classname="sample_grid_subsum_nexacro" left="0" top="0" width="1024" height="768" titletext="Grid &gt; subsum" style="font:9 Arial;">
@@ -138,15 +147,7 @@
         </Rows>
       </Dataset>
     </Objects>
-    <Script type="xscript5.0"><![CDATA[/*
-Grid: 합계 및 소계
-
-그리드 셀의 suppress 속성과 데이터셋의 keystring 속성을 사용하여
-그리드의 내용을 그룹화하여 소계(subtotal)를 구하고
-getSum 메소드를 사용하여 합계(total)를 구한다.
-*/
-
-/* Common setting function for grid */
+    <Script type="xscript5.0"><![CDATA[/* Common setting function for grid */
 this.SetGrid = function()
 {
 	/* setting for pre-defined grid format */
