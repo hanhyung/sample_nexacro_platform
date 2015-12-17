@@ -7,6 +7,7 @@
 
 관련 항목
 > Objects > XComponents > Grid > Objects > Cell > Property > displaytype
+
 > Objects > XComponents > Grid > Objects > Cell > Property > mask
 
 
