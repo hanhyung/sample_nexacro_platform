@@ -10,7 +10,7 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
   <Form id="sample_grid_cell_display_nexacro14" classname="sample_grid_display_nexacro" left="0" top="0" width="1024" height="768" titletext="Grid &gt; Cell &gt; displaytype" onload="sample_grid_cell_display_nexacro14_onload">
     <Layouts>
       <Layout>
-        <Button id="btn_apply_property" taborder="0" text="Setting &#13;&#10;displaytype" left="16" top="253" height="32" onclick="btn_apply_property_onclick" width="120" style="font:9 Arial;"/>
+        <Button id="btn_apply_property" taborder="0" text="Setting &#13;&#10;displaytype" left="16" top="253" height="32" onclick="btn_apply_property_onclick" width="120" style="font:9 Arial bold;"/>
         <Grid id="Grid00" taborder="3" binddataset="ds_displaytype" useinputpanel="false" left="16" top="96" height="149" autofittype="col" autosizingtype="none" cellsizingtype="col" width="960" treeusecheckbox="false" treeuseexpandkey="true" locale="en_US">
           <Formats>
             <Format id="default">
@@ -184,13 +184,12 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
         </Rows>
       </Dataset>
     </Objects>
-    <Script type="xscript5.0"><![CDATA[this.btn_apply_property_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+    <Script type="xscript5.0"><![CDATA[/*
+The displaytype property of a specified cell in the body band
+can be set using the setCellProperty method.
+*/
+this.btn_apply_property_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	/*
-	The displaytype property of a specified cell in the body band
-	can be set using the setCellProperty method.
-	*/
-	
 	/* number type */
 	this.Grid00.setCellProperty("body", 0, "displaytype", "number");
 	
@@ -228,22 +227,14 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
 	/* tree type */
 	this.Grid00.setCellProperty("body", 11, "displaytype", "tree");
 
-
 	this.btn_apply_property.style.set_font("9 Arial bold");
 	this.btn_reset.style.set_font("9 Arial");	
-
-	/* Counting the number of cells belonging to a certain band */
-	/*
-	trace("head cell: " + this.Grid00.getCellCount("head"));
-	trace("body cell: " + this.Grid00.getCellCount("body"));
-	trace("summay cell: " + this.Grid00.getCellCount("summary"));	
-	*/
 	
 }
 
+/* Setting the displaytype property to "normal" (default value) */
 this.btn_reset_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	/* Setting the displaytype property to "normal" (default value) */
 	this.Grid00.setCellProperty("body", 0, "displaytype", "normal");
 	this.Grid00.setCellProperty("body", 1, "displaytype", "normal");
 	this.Grid00.setCellProperty("body", 2, "displaytype", "normal");

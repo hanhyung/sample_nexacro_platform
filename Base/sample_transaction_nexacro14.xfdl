@@ -1,4 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Transaction: executing the transaction method
+
+The transaction method executes the service (Svc::Service_Default.jsp) 
+and then obtains the result in the form of a dataset. 
+A callback function (fn_callback) will follow to display the duration spent processing the service.
+
+샘플 코드 사용에 대한 자세한 정보는 아래 링크를 참조하십시오.
+https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
+-->
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
   <Form id="sample_transaction_nexacro" classname="sample_transaction_nexacro" left="0" top="0" width="1024" height="768" titletext="Transaction">
@@ -106,16 +116,7 @@
         </ColumnInfo>
       </Dataset>
     </Objects>
-    <Script type="xscript5.0"><![CDATA[/*
-Transaction: executing the transaction method
-
-The transaction method executes the service (Svc::Service_Default.jsp) 
-and then obtains the result in the form of a dataset. 
-A callback function (fn_callback) will follow to display the duration spent processing the service.
-*/
-
-
-var sStartTime;
+    <Script type="xscript5.0"><![CDATA[var sStartTime;
 
 /* Service URL to be called by the transaction method */
 var serviceURL = "Svc::Service_Default.jsp";

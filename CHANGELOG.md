@@ -7,6 +7,8 @@
 
 관련 항목
 > Objects > XComponents > Grid > Objects > Cell > Property > displaytype
+> Objects > XComponents > Grid > Objects > Cell > Property > mask
+
 
 
 :black_small_square:[sample_grid_cell_edit_nexacro14.xfdl](https://raw.githubusercontent.com/nexacro/sample_nexacro_platform/master/Base/sample_grid_cell_edit_nexacro14.xfdl) 샘플 추가

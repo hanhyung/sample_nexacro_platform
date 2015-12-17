@@ -10,7 +10,7 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
   <Form id="sample_grid_cell_edit_nexacro14" classname="sample_grid_edit_nexacro" left="0" top="0" width="1024" height="768" titletext="Grid &gt; Cell &gt; edittype" style="font:9 Arial;">
     <Layouts>
       <Layout>
-        <Grid id="Grid00" taborder="0" binddataset="ds_edit" useinputpanel="false" onexpanddown="Grid00_onexpanddown" left="16" top="96" height="80" autofittype="col" width="720" autosizingtype="none" cellsizingtype="col" style="font:9 Arial;" locale="en_US">
+        <Grid id="Grid00" taborder="0" binddataset="ds_edit" useinputpanel="false" onexpanddown="Grid00_onexpanddown" left="16" top="128" height="80" autofittype="col" width="720" autosizingtype="none" cellsizingtype="col" style="font:9 Arial;" locale="en_US">
           <Formats>
             <Format id="default">
               <Columns>
@@ -41,20 +41,20 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
               </Band>
               <Band id="body">
                 <Cell displaytype="normal" text="bind:none"/>
-                <Cell col="1" edittype="none" text="bind:normal"/>
-                <Cell col="2" edittype="none" text="bind:ime" edituseime="local" editimemode="hangul"/>
-                <Cell col="3" displaytype="text" edittype="none" editfilter="upper" text="bind:upper"/>
-                <Cell col="4" displaytype="number" edittype="none" editfilter="integer" text="bind:integer"/>
-                <Cell col="5" displaytype="checkbox" edittype="none" text="bind:check"/>
-                <Cell col="6" displaytype="combo" edittype="none" text="bind:combo" combodataset="ds_combo" combocodecol="CODE" combodatacol="VALUE" combodisplay="display"/>
-                <Cell col="7" edittype="none" style="expandchar:...;" text="bind:expand" expandshow="hide" expandsize="16" expandchar="..."/>
-                <Cell col="8" displaytype="date" edittype="none" text="bind:expand" locale="en_US" calendardisplay="edit"/>
+                <Cell col="1" edittype="normal" text="bind:normal"/>
+                <Cell col="2" edittype="normal" text="bind:ime" edituseime="local" editimemode="hangul"/>
+                <Cell col="3" displaytype="text" edittype="normal" editfilter="upper" text="bind:upper"/>
+                <Cell col="4" displaytype="number" edittype="normal" editfilter="integer" text="bind:integer"/>
+                <Cell col="5" displaytype="checkbox" edittype="checkbox" text="bind:check"/>
+                <Cell col="6" displaytype="combo" edittype="combo" text="bind:combo" combodataset="ds_combo" combocodecol="CODE" combodatacol="VALUE" combodisplay="display"/>
+                <Cell col="7" edittype="expand" style="expandchar:...;" text="bind:expand" expandshow="show" expandsize="16" expandchar="..."/>
+                <Cell col="8" displaytype="date" edittype="date" text="bind:expand" locale="en_US" calendardisplay="edit"/>
               </Band>
             </Format>
           </Formats>
         </Grid>
-        <Calendar id="Calendar00" taborder="1" type="monthonly" ondayclick="Calendar00_ondayclick" visible="false" left="47.17%" top="123" height="200" width="240" style="dayfont:9 Arial;font:9 Arial;" oneditclick="Calendar00_oneditclick" locale="en_US" value="null" dateformat="yyyy-MM-dd ddd" onmouseleave="Calendar00_onmouseleave"/>
-        <Static id="Static00" taborder="4" text="Input status:" left="16" top="64" height="32" style="font:10 Verdana;" width="120"/>
+        <Calendar id="Calendar00" taborder="1" type="monthonly" ondayclick="Calendar00_ondayclick" visible="false" left="48.44%" top="204" height="200" width="240" style="dayfont:9 Arial;font:9 Arial;" oneditclick="Calendar00_oneditclick" locale="en_US" value="null" dateformat="yyyy-MM-dd ddd" onmouseleave="Calendar00_onmouseleave"/>
+        <Static id="Static00" taborder="4" text="Edit status:" left="16" top="96" height="32" style="font:10 Verdana;" width="120"/>
         <Div id="Div00" taborder="6" text="Div00" left="6" top="7" right="0.78%" height="49">
           <Layouts>
             <Layout width="1008" height="49">
@@ -63,7 +63,7 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
             </Layout>
           </Layouts>
         </Div>
-        <Button id="btn_edit" taborder="7" text="Uneditable" left="112" top="68" height="24" onclick="btn_edit_onclick" width="120" style="color:#333333ff;"/>
+        <Radio id="Radio00" taborder="8" left="106" top="96" height="32" width="214" innerdataset="@ds_radio" codecolumn="CODE" datacolumn="VALUE" columncount="2" value="E" onitemchanged="Radio00_onitemchanged"/>
       </Layout>
     </Layouts>
     <Objects>
@@ -123,6 +123,22 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
           </Row>
         </Rows>
       </Dataset>
+      <Dataset id="ds_radio">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="VALUE" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">E</Col>
+            <Col id="VALUE">EDITABLE</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">N</Col>
+            <Col id="VALUE">NON-EDITABLE</Col>
+          </Row>
+        </Rows>
+      </Dataset>
     </Objects>
     <Bind>
       <BindItem id="item0" compid="Calendar00" propid="value" datasetid="ds_edit" columnid="expand"/>
@@ -166,9 +182,8 @@ this.SetEditable = function()
 
 }
 
-
 /* 그리드의 셀을 편집하지 못하도록 설정 */
-this.SetUneditable = function()
+this.SetNonEditable = function()
 {
 	this.Grid00.setCellProperty("body", 0, "edittype", "none");	
 	
@@ -196,7 +211,6 @@ this.SetUneditable = function()
 	this.Grid00.setCellProperty("body", 8, "calendardisplay", "");
 
 }
-
 
 /* 
 onexpanddown 이벤트 핸들러
@@ -239,19 +253,20 @@ this.Calendar00_onmouseleave = function(obj:Calendar, e:nexacro.MouseEventInfo)
 	this.Calendar00.set_visible(false);	
 }
 
-this.btn_edit_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
-{
-	if(this.btn_edit.text === "Editable")
-	{
-		this.SetUneditable();
-		this.btn_edit.set_text("Uneditable");
-	}
-	else if(this.btn_edit.text === "Uneditable")
-	{
-		this.SetEditable();
-		this.btn_edit.set_text("Editable");
-	}
 
+this.Radio00_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{	
+	switch(e.postindex)
+	{
+		case 0:	/* Editable */
+			this.SetEditable();
+			break;
+		case 1: /* Non-Editable */
+			this.SetNonEditable();
+			break;
+		default:
+			trace("UNKNOWN");
+	}
 }
 ]]></Script>
   </Form>

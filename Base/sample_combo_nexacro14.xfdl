@@ -92,7 +92,7 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
 			this.Combo00.set_type("filter");
 			break;
 		default:
-			trace("UNKNOWN type");
+			trace("UNKNOWN");
 	}
 	
 }]]></Script>
