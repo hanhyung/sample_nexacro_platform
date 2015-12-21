@@ -1,5 +1,5 @@
 #Sample Code for Nexacro Platform
-[![Product Version](https://img.shields.io/badge/Nexacro%20Platform-v14.0.0.901-blue.svg)](https://github.com/nexacro/sample_nexacro_platform/blob/master/CHANGELOG.md)
+[![Product Version](https://img.shields.io/badge/Nexacro%20Platform-v14.0.0.902-blue.svg)](https://github.com/nexacro/sample_nexacro_platform/blob/master/CHANGELOG.md)
 
 Nexacro Platform is a javascript framework for building user interfaces.
 
