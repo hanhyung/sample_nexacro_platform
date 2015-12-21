@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
+DOM:
+
 XML, HTML 파일을 DOM 파서를 사용해 분석한 후 그리드에 트리 형식으로 표현합니다.
 
 샘플 코드 사용에 대한 자세한 정보는 아래 링크를 참조하십시오.
@@ -26,7 +28,7 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
             </Format>
           </Formats>
         </Grid>
-        <Static id="Static05" taborder="10" text="DOM Information" left="16" top="336" width="200" height="60" style="font:16 Verdana;"/>
+        <Static id="Static05" taborder="10" text="DOM Information Tree" left="16" top="336" width="240" height="60" style="font:16 Verdana;"/>
         <Button id="btn_parse_dom" taborder="14" text="Parsing" onclick="btn_parse_dom_onclick" left="604" top="80" width="120" height="32" style="font:9 Arial;"/>
         <Div id="Div00" taborder="15" text="Div00" left="7" top="7" right="0.78%" height="49">
           <Layouts>

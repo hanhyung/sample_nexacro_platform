@@ -1,15 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+리스트박스를 사용하면 여러 개의 후보값중에서 1개 혹은 여러 개의 값을 선택할 수 있다.
+선택된 값은 리스트박스의 getSelectedCount, getCount 메소드를 사용하여 구할 수 있다.
+
+샘플 코드 사용에 대한 자세한 정보는 아래 링크를 참조하십시오.
+https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
+-->
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
   <Form id="sample_listbox_nexacro" classname="sample_listbox_nexacro" left="0" top="0" width="1024" height="768" titletext="ListBox" onload="sample_listbox_nexacro_onload">
     <Layouts>
       <Layout>
-        <ListBox id="ListBox00" taborder="0" left="16" top="96" height="120" innerdataset="@ds_sex" codecolumn="CODE" datacolumn="VALUE" index="-1" width="200"/>
-        <Button id="Button00" taborder="2" text="multi select" left="223" top="96" height="32" onclick="Button00_onclick" width="120"/>
-        <Button id="Button01" taborder="3" text="single select" left="223" top="132" height="32" onclick="Button01_onclick" width="120"/>
-        <Static id="Static00" taborder="4" text="Selection mode:" left="16" top="64" height="32" style="font:10 Verdana;" width="160"/>
-        <Static id="Static01" taborder="5" text="single" left="128" top="64" height="32" style="color:red;font:10 Verdana;" onclick="Static01_onclick" width="160"/>
-        <Button id="Button02" taborder="6" text="selected number" onclick="Button02_onclick" left="16" top="232" height="32" width="120"/>
+        <ListBox id="ListBox00" taborder="0" left="16" top="128" height="121" innerdataset="@ds_sex" codecolumn="CODE" datacolumn="VALUE" index="-1" width="200" multiselect="true"/>
+        <Static id="Static00" taborder="4" text="Selection mode:" left="16" top="96" height="32" style="font:10 Verdana;" width="160"/>
+        <Button id="Button02" taborder="6" text="selected item" onclick="btn_count_item" left="16" top="256" height="32" width="120"/>
         <Div id="Div00" taborder="7" text="Div00" left="7" top="7" right="0.78%" height="49">
           <Layouts>
             <Layout width="1008" height="49">
@@ -18,6 +22,7 @@
             </Layout>
           </Layouts>
         </Div>
+        <Radio id="Radio00" taborder="8" left="129" top="96" height="32" columncount="2" innerdataset="@ds_radio" codecolumn="CODE" datacolumn="VALUE" value="M" width="135" onitemchanged="Radio00_onitemchanged"/>
       </Layout>
     </Layouts>
     <Objects>
@@ -53,23 +58,37 @@
           </Row>
         </Rows>
       </Dataset>
+      <Dataset id="ds_radio">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="VALUE" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">M</Col>
+            <Col id="VALUE">MULTI</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">S</Col>
+            <Col id="VALUE">SINGLE</Col>
+          </Row>
+        </Rows>
+      </Dataset>
     </Objects>
-    <Script type="xscript5.0"><![CDATA[this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
-{
-	this.Static01.set_text("multi");
-	
-	this.ListBox00.set_multiselect(true);
-	
+    <Script type="xscript5.0"><![CDATA[/* 다중 선택 */
+this.SetMultiSelection = function()
+{	
+	this.ListBox00.set_multiselect(true);	
 }
 
-this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+/* 단일 선택 */
+this.SetSingleSelection = function()
 {
-	this.Static01.set_text("single");	
-
 	this.ListBox00.set_multiselect(false);
 }
 
-this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+/* 리스트박스에서 선택된 아이템 정보를 출력 */
+this.btn_count_item = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	var nSCnt = this.ListBox00.getSelectedCount();
 	var sMsg = "Selected record is\n";
@@ -85,7 +104,22 @@ this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	sMsg += "Number of selected row: " + nSCnt;
 
 	trace(sMsg);
-	
+}
+
+this.Radio00_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	switch(e.postindex)
+	{
+		case 0:
+			this.SetMultiSelection();
+			break;
+		case 1:
+			this.SetSingleSelection();
+			break;
+		default:
+			trace("UNKNOWN");
+		
+	}
 }
 ]]></Script>
   </Form>

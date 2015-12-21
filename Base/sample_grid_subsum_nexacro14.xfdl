@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
 Grid: 합계 및 소계
+
 그리드 셀의 suppress 속성과 데이터셋의 keystring 속성을 사용하여
 그리드의 내용을 그룹화하여 소계(subtotal)를 구하고
 getSum 메소드를 사용하여 합계(total)를 구한다.

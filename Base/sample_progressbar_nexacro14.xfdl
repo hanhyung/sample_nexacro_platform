@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
 ProgressBar: Settings and actions of a progress bar
+
 After a ProgressBar component is created, the setTimer method is used to set a timer and trigger the ontimer event at certain intervals. 
 The ontimer event will call the stepIt method, which will extend the progress bar as much as specified in the step property.
 

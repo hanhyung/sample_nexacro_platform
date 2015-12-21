@@ -2,8 +2,8 @@
 <!--
 /*
 Grid: 다중, 영역 선택과 선택 영역 정보 얻기
-그리드의 selecttype 속성을 설정하면
-사용자는 여러 방식으로 셀을 선택할 수 있다.
+
+그리드의 selecttype 속성을 설정하면 여러 방식으로 셀을 선택할 수 있다.
 
 샘플 코드 사용에 대한 자세한 정보는 아래 링크를 참조하십시오.
 https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
