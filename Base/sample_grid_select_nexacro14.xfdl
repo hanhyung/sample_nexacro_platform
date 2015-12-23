@@ -273,8 +273,8 @@ this.Grid00_onselectchanged = function(obj:Grid, e:nexacro.GridSelectEventInfo)
 	this.Static00.set_text("row");
 	
 	var arrRow = this.Grid00.getSelectedRows();
-	var sMsg = "\nThe index of selected row: " + arrRow[0];
-		
+
+	var sMsg = "\nThe index of selected row: " + arrRow[0];	
 	trace(sMsg);
 
 }
@@ -285,7 +285,6 @@ this.Grid01_onselectchanged = function(obj:Grid, e:nexacro.GridSelectEventInfo)
 	this.Static00.set_text("cell");
 	
 	var sMsg = "\nThe position of selected cell: (" + e.col + ", " + e.row + ")";
-	
 	trace(sMsg);
 
 }
