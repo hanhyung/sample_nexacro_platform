@@ -7,10 +7,10 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
 -->
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="sample_calendar_nexacro" classname="sample_calendar_nexacro" left="0" top="0" width="1024" height="768" titletext="sample calendar" onload="sample_calendar_nexacro_onload">
+  <Form id="sample_calendar_nexacro" classname="sample_calendar_nexacro" left="0" top="0" width="1024" height="768" titletext="Grid Calendar" onload="sample_calendar_nexacro_onload">
     <Layouts>
       <Layout>
-        <Grid id="Grid_calendar" taborder="0" binddataset="ds_calendar" useinputpanel="false" autofittype="col" onheadclick="Grid_calendar_onheadclick" left="16" top="96" height="400" selecttype="cell" width="480" autosizingtype="none" cellsizingtype="none" extendsizetype="none">
+        <Grid id="Grid_calendar" taborder="0" binddataset="ds_calendar" useinputpanel="false" autofittype="col" onheadclick="Grid_calendar_onheadclick" left="16" top="96" height="400" selecttype="cell" width="480" autosizingtype="none" cellsizingtype="none" extendsizetype="none" style="border:1 solid #838383ff,0 solid #c9c6c3ff,0 solid #c9c6c3ff,0 solid #c9c6c3ff;">
           <Formats>
             <Format id="default">
               <Columns>
@@ -63,7 +63,7 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
             </Layout>
           </Layouts>
         </Div>
-        <Static id="Static00" taborder="2" text="Grid Calendar" left="16" top="64" width="400" height="32" style="font:10 Verdana;"/>
+        <Static id="Static00" taborder="2" text="Grid calendar" left="16" top="64" width="400" height="32" style="font:10 Verdana;"/>
       </Layout>
     </Layouts>
     <Objects>
