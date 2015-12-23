@@ -24,8 +24,11 @@
 
 관련 항목
 > Objects > Data Objects > Dataset > Property > keystring
+
 > Objects > XComponents > Grid > Property > formatid
+
 > Objects > Data Objects > Dataset > Method > getRowLevel
+
 > Objects > Data Objects > Dataset > Method > getSum
 
 :black_small_square:[sample_listbox_nexacro14.xfdl](https://raw.githubusercontent.com/nexacro/sample_nexacro_platform/master/Base/sample_listbox_nexacro14.xfdl) 샘플 추가
@@ -37,21 +40,27 @@
 
 관련 항목
 > Objects > XComponents > MaskEdit > Property > mask
+
 > Objects > XComponents > MaskEdit > Property > type
 
 :black_small_square:[sample_menu_nexacro14.xfdl](https://raw.githubusercontent.com/nexacro/sample_nexacro_platform/master/Base/sample_menu_nexacro14.xfdl) 샘플 추가
 
 관련 항목
 > Objects > XComponents > Menu > Property > captioncolumn
+
 > Objects > XComponents > Menu > Property > idcolumn
+
 > Objects > XComponents > Menu > Property > levelcolumn
 
 :black_small_square:[sample_progressbar_nexacro14.xfdl](https://raw.githubusercontent.com/nexacro/sample_nexacro_platform/master/Base/sample_progressbar_nexacro14.xfdl) 샘플 추가
 
 관련 항목
 > Objects > XComponents > ProgressBar > Method > stepIt
+
 > Objects > XComponents > ProgressBar > Property > pos
+
 > Objects > XComponents > Form > Method > setTimer
+
 > Objects > XComponents > Form > Method > killTimer
 
 
@@ -67,6 +76,7 @@
 
 관련 항목
 > Objects > XComponents > Grid > Objects > Cell > Property > displaytype
+
 > Objects > XComponents > Grid > Objects > Cell > Property > mask
 
 
