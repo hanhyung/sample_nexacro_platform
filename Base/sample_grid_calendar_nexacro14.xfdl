@@ -104,6 +104,7 @@ this.sample_calendar_nexacro_onload = function(obj:Form, e:nexacro.LoadEventInfo
 	this.fn_drawCalendar(strTodayDate);	
 }
 
+/* 그리드 헤드 밴드의 <, > 버튼을 사용하여 년, 월 단위로 달력을 표시한다. */
 this.Grid_calendar_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
 {
 	if(e.cell === 0)
@@ -127,7 +128,7 @@ this.Grid_calendar_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo
 	
 }
 
-
+/* 오늘 날짜를 구하여 반환한다 */
 this.fn_getToday = function()
 {
 	var objDate = new Date();
@@ -139,7 +140,7 @@ this.fn_getToday = function()
 	return strNowYear + strNowMonth + strNowDay;
 }
 
-
+/* 설정한 년, 월에 맞게 그리드에 날짜 정보를 표시한다. */
 this.fn_drawCalendar = function(strDrawDate)
 {
 	/* Year */

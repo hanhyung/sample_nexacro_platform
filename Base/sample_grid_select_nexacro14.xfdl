@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
-/*
 Grid: 다중, 영역 선택과 선택 영역 정보 얻기
 
 그리드의 selecttype 속성을 설정하면 여러 방식으로 셀을 선택할 수 있다.

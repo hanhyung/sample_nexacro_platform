@@ -11,7 +11,7 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
   <Form id="sample_listbox_nexacro" classname="sample_listbox_nexacro" left="0" top="0" width="1024" height="768" titletext="ListBox" onload="sample_listbox_nexacro_onload">
     <Layouts>
       <Layout>
-        <ListBox id="ListBox00" taborder="0" left="16" top="128" height="121" innerdataset="@ds_sex" codecolumn="CODE" datacolumn="VALUE" index="-1" width="200" multiselect="true"/>
+        <ListBox id="ListBox00" taborder="0" left="16" top="128" height="121" innerdataset="@ds_sex" codecolumn="CODE" datacolumn="VALUE" index="-1" width="245" multiselect="true"/>
         <Static id="Static00" taborder="4" text="Selection mode:" left="16" top="96" height="32" style="font:10 Verdana;" width="160"/>
         <Button id="Button02" taborder="6" text="selected item" onclick="btn_count_item" left="16" top="256" height="32" width="120"/>
         <Div id="Div00" taborder="7" text="Div00" left="7" top="7" right="0.78%" height="49">

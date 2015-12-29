@@ -55,6 +55,9 @@
 :black_small_square:[sample_progressbar_nexacro14.xfdl](https://raw.githubusercontent.com/nexacro/sample_nexacro_platform/master/Base/sample_progressbar_nexacro14.xfdl) 샘플 추가
 
 관련 항목
+
+> Objects > XComponents > ProgressBar > Property > step
+
 > Objects > XComponents > ProgressBar > Method > stepIt
 
 > Objects > XComponents > ProgressBar > Property > pos
@@ -62,6 +65,8 @@
 > Objects > XComponents > Form > Method > setTimer
 
 > Objects > XComponents > Form > Method > killTimer
+
+> Objects > XComponents > Form > Event > ontimer
 
 
 :black_small_square:[sample_step_nexacro14.xfdl](https://raw.githubusercontent.com/nexacro/sample_nexacro_platform/master/Base/sample_step_nexacro14.xfdl) 샘플 추가
