@@ -19,7 +19,7 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
             </Layout>
           </Layouts>
         </Div>
-        <Radio id="Radio00" taborder="6" left="16" top="96" height="32" width="280" innerdataset="@ds_radio" codecolumn="CODE" datacolumn="VALUE" columncount="3" onitemchanged="Radio00_onitemchanged" value="N"/>
+        <Radio id="Radio00" taborder="6" left="16" top="96" height="32" width="300" innerdataset="@ds_radio" codecolumn="CODE" datacolumn="VALUE" columncount="3" onitemchanged="Radio00_onitemchanged" value="N"/>
       </Layout>
     </Layouts>
     <Objects>
