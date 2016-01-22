@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+WebBrowser 컴포넌트의 생성 및 사용
+
+샘플 코드 사용에 대한 자세한 정보는 아래 링크를 참조하십시오.
+https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
+-->
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="sample_webbrowser_nexacro" classname="sample_webbrowser_nexacro" left="0" top="0" width="1024" height="768" titletext="WebBrowser" onload="sample_webbrowser_nexacro_onload">
+    <Layouts>
+      <Layout>
+        <Edit id="Edit00" taborder="0" left="16" top="96" height="32" width="470" value="www.nexacro.co.kr" onkeydown="Edit00_onkeydown"/>
+        <Button id="btn_go" taborder="1" text="Go" left="494" top="96" height="32" onclick="btn_go_onclick" width="120"/>
+        <Div id="Div00" taborder="2" text="Div00" left="7" top="7" right="0.78%" height="49">
+          <Layouts>
+            <Layout width="1008" height="49">
+              <ImageViewer id="ImageViewer00" taborder="5" image="URL('Image::img_imgviewer_N.png')" stretch="fit" left="8" top="5" width="140" height="35" style="border:1 none #6b6b6bff ;"/>
+              <Static id="stt_version" taborder="6" expr="expr:&quot;Version: &quot; + application.gvVersion" text="Version" top="7" right="13" width="160" height="32" style="align:right middle;font:9 Verdana;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[this.sample_webbrowser_nexacro_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	/* 브라우저 객체 생성 및 초기화 */
+	var objWebBrowser = new WebBrowser("WebBrowser00", "absolute", 16, 144, 600, 480, null, null);	  
+
+	/* 브라우저 객체를 폼의 자식 객체로 추가 */
+	this.addChild("WebBrowser00", objWebBrowser); 
+	 	 
+	/* Show WebBrowser object */
+	objWebBrowser.show(); 
+		
+	/* Setting URL */
+	objWebBrowser.set_url(this.Edit00.value);
+	
+}
+
+this.btn_go_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sUrl = this.Edit00.value;
+	var i=0;	
+	
+	while(this.all[i] !== undefined)
+	{	
+		if(this.all[i].id === "WebBrowser00")
+		{
+			this.all[i].set_url(sUrl);
+		}
+		
+		i++;
+	}
+	
+}
+
+this.Edit00_onkeydown = function(obj:Edit, e:nexacro.KeyEventInfo)
+{
+	if(e.keycode === 13)	/* key code value of enter*/
+	{
+		this.btn_go_onclick()
+	}
+	
+}
+]]></Script>
+  </Form>
+</FDL>

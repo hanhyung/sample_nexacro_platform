@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+달력 컴포넌트의 type 속성을 설정하면 다양한 형태로 달력을 사용할 수 있다.
+
+샘플 코드 사용에 대한 자세한 정보는 아래 링크를 참조하십시오.
+https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
+-->
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="sample_calendar_nexacro" classname="sample_calendar_nexacro" left="0" top="0" width="1024" height="768" titletext="New Form" onload="sample_calendar_nexacro_onload">
+    <Layouts>
+      <Layout>
+        <Calendar id="Calendar00" taborder="0" left="16" top="128" height="20" width="240" style="popupsize:240 186;popupborder:1 solid #808080ff ;trailingdaycolor:gray;" locale="en_US" value="null" dateformat="yyyy-MM-dd ddd" type="normal"/>
+        <Div id="Div01" taborder="5" text="Div00" left="7" top="7" right="6" height="49">
+          <Layouts>
+            <Layout width="1008" height="49">
+              <ImageViewer id="ImageViewer00" taborder="5" image="URL('Image::img_imgviewer_N.png')" stretch="fit" left="8" top="5" width="140" height="35" style="border:1 none #6b6b6bff ;"/>
+              <Static id="stt_version" taborder="6" expr="expr:&quot;Version: &quot; + application.gvVersion" text="Version" top="7" right="13" width="160" height="32" style="align:right middle;font:9 Verdana;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Radio id="Radio00" taborder="6" left="16" top="96" height="32" width="280" innerdataset="@ds_radio" codecolumn="CODE" datacolumn="VALUE" columncount="3" onitemchanged="Radio00_onitemchanged" value="N"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_radio">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="VALUE" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">N</Col>
+            <Col id="VALUE">NORMAL</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">S</Col>
+            <Col id="VALUE">SPIN</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">M</Col>
+            <Col id="VALUE">MONTHONLY</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/* 오늘 날짜를 문자열로 변환하여 반환 */
+this.fn_today = function()
+{
+	var objDate = new Date();
+	
+    return this.fn_dateToString(objDate);
+
+}
+
+/* 날짜 형식을 문자열로 변환 */
+this.fn_dateToString = function(objDate)
+{
+    var strDate =  objDate.getFullYear()
+             + (objDate.getMonth()+1).toString().padLeft(2, "0")
+             +  objDate.getDate().toString().padLeft(2, "0");
+
+	return strDate;
+	
+}
+
+
+this.sample_calendar_nexacro_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{	
+	/* 달력 컴포넌트에 오늘 날짜 설정 */
+	this.Calendar00.set_expr("comp.parent.fn_today()");
+
+	/* 날짜를 표시하는 형식을 설정 */
+	this.Calendar00.set_dateformat("yyyy/MM/dd");
+	this.Calendar00.set_editformat("yyyy/MM/dd");
+
+}
+
+
+/* 달력의 타입 설정 */
+this.Radio00_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	switch(e.postindex)
+	{
+		case 0:	/* normal */
+			this.Calendar00.set_type("normal");
+			break;
+		case 1: /* spin */
+			this.Calendar00.set_type("spin");
+			break;
+		case 2: /* monthonly */
+			this.Calendar00.set_type("monthonly");
+			break;
+		default:
+			trace("UNKNOWN TYPE");
+	}
+	
+}
+]]></Script>
+  </Form>
+</FDL>
