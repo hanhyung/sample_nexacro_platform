@@ -28,25 +28,24 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
     <Script type="xscript5.0"><![CDATA[this.btn_play_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	// Create Object 
-	var objFlashPlayer = new FlashPlayer(); 	
+	var objFlashPlayer = new FlashPlayer();	
 	objFlashPlayer.init("FlashPlayer01", "absolute", 15, 96, 480, 240, null, null);
 
 	// Add Object to Parent Form  
 	this.addChild("FlashPlayer01", objFlashPlayer); 
 	 
 	// Insert Object to Parent Form  
-	//this.insertChild(1, "FlashPlayer01", objFlashPlayer); 
+	this.insertChild(1, "FlashPlayer01", objFlashPlayer); 
 
 	this.FlashPlayer01.set_visible(true);
 	this.FlashPlayer01.set_playing((this.FlashPlayer01.playing == false) ? true : false);
 	this.FlashPlayer01.set_loop((this.FlashPlayer01.loop == false) ? true : false);	 	
 	this.FlashPlayer01.set_movie("http://nexacro.github.io/Image/main.swf");
 	//this.FlashPlayer00.set_movie(application.gvServerID + "/Image/getEvent.swf");
-	//this.FlashPlayer00.set_movie("http://miplatform.co.kr/Miplatform/NewHome/flash/main.swf");
 	
 	// Show Object
 	this.FlashPlayer01.show();
-	
+
 }
 
 
@@ -63,19 +62,17 @@ this.btn_stop_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 		if(objFlashPlayer.destroy())
 		{			
 			objFlashPlayer = null;
-			trace("FlashPlayer01 destroy succeed");
+			trace("FlashPlayer01 destroy succeed.");
 		}
 		else
 		{
-			trace("FlashPlayer01 destroy failed");
+			trace("FlashPlayer01 destroy failed.");
 		}		
 	}
 	else
 	{
 		trace("removeChild(\"FlashPlayer01\") failed.");
 	}
-
-
 
 }
 ]]></Script>

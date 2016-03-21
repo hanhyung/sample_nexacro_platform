@@ -74,8 +74,23 @@
         <Col id="CATEGORY">DOM</Col>
         <Col id="URL">Base::sample_dom_nexacro14.xfdl</Col>
       </Row>
+      <Row>
+        <Col id="ID">14</Col>
+        <Col id="CATEGORY">FlashPlayer</Col>
+        <Col id="URL">Base::sample_flashplayer_nexacro14.xfdl</Col>
+      </Row>
+      <Row>
+        <Col id="ID">15</Col>
+        <Col id="CATEGORY">WebBrowser</Col>
+        <Col id="URL">Base::sample_webbrowser_nexacro14.xfdl</Col>
+      </Row>
+      <Row>
+        <Col id="ID">16</Col>
+        <Col id="CATEGORY">Transaction</Col>
+        <Col id="URL">Base::sample_transaction_nexacro14.xfdl</Col>
+      </Row>
     </Rows>
   </Dataset>
-  <Variable id="gvVersion" initval="14.0.0.1000"/>
+  <Variable id="gvVersion" initval="14.0.0.1101"/>
   <Variable id="gvDebug" initval="true"/>
 </GlobalVariables>

@@ -4,22 +4,23 @@
   <Form id="sample_virtualfile_nexacro" classname="_sample_virtualfile_nexacro" left="0" top="0" width="1024" height="768" titletext="VirtualFile">
     <Layouts>
       <Layout>
-        <Static id="Static04" taborder="0" text="Contents" left="16" top="178" height="60" style="font:bold 16 dotum;" width="120"/>
-        <TextArea id="TextArea00" taborder="2" left="16" top="230" height="512" lengthunit="utf16" width="720"/>
-        <GroupBox id="GroupBox00" text="File Information" taborder="8" left="16" top="64" height="120" width="720" style="font:bold 10 dotum;"/>
-        <Button id="btn_open_file" taborder="9" text="Open" left="600" top="99" height="32" onclick="btn_open_file_onclick" width="120"/>
-        <Static id="Static00" taborder="12" text="File Path" left="39" top="99" height="32" style="font:10 dotum;" width="120"/>
-        <Static id="Static01" taborder="13" left="112" top="99" height="32" width="480" style="background:burlywood;border:1 solid #808080ff ;"/>
-        <Static id="Static02" taborder="14" text="File Size" left="39" top="136" height="32" style="font:10 dotum;" width="120"/>
-        <Static id="Static03" taborder="15" left="112" top="136" height="32" width="480" style="background:burlywood;border:1 solid #808080ff ;"/>
-        <Div id="Div00" taborder="16" text="Div00" left="7" top="7" right="6" height="49">
+        <Static id="Static04" taborder="0" text="Text Viewer" left="16" top="218" height="60" style="font:bold 16 dotum;" width="120"/>
+        <TextArea id="TextArea00" taborder="2" left="16" top="264" height="478" lengthunit="utf16" width="720"/>
+        <GroupBox id="GroupBox00" text="File Information" taborder="8" left="16" top="96" height="110" width="720" style="font:bold 10 dotum;"/>
+        <Button id="btn_open_file" taborder="9" text="Open" left="600" top="123" height="32" onclick="btn_open_file_onclick" width="120"/>
+        <Static id="Static00" taborder="12" text="File Path" left="39" top="123" height="32" style="font:10 dotum;" width="120"/>
+        <Static id="Static01" taborder="13" left="112" top="123" height="32" width="480" style="background:burlywood;border:1 solid #808080ff ;"/>
+        <Static id="Static02" taborder="14" text="File Size" left="39" top="160" height="32" style="font:10 dotum;" width="120"/>
+        <Static id="Static03" taborder="15" left="112" top="160" height="32" width="480" style="background:burlywood;border:1 solid #808080ff ;"/>
+        <Static id="stt_version" taborder="17" expr="expr:&quot;Version: &quot; + application.gvVersion" text="Version" top="15" right="5" width="120" height="32" style="font:9 dotum;"/>
+        <Div id="Div01" taborder="18" text="Div00" left="7" top="7" right="6" height="49">
           <Layouts>
             <Layout width="1008" height="49">
-              <Combo id="cb_list" taborder="0" displaynulltext="More Sample" innerdataset="@ds_sample_url" codecolumn="URL" datacolumn="CATEGORY" onitemchanged="Div00_cb_list_onitemchanged" left="7" top="7" width="240" height="32"/>
+              <ImageViewer id="ImageViewer00" taborder="7" image="URL('Image::img_imgviewer_N.png')" stretch="fit" left="8" top="5" width="140" height="35" style="border:1 none #6b6b6bff ;"/>
+              <Static id="stt_version" taborder="8" expr="expr:&quot;Version: &quot; + application.gvVersion" text="Version" top="7" right="13" width="160" height="32" style="align:right middle;font:9 Verdana;"/>
             </Layout>
           </Layouts>
         </Div>
-        <Static id="stt_version" taborder="17" expr="expr:&quot;Version: &quot; + application.gvVersion" text="Version" top="15" right="5" width="120" height="32" style="font:9 dotum;"/>
       </Layout>
     </Layouts>
     <Objects>

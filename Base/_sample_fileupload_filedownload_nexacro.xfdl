@@ -35,14 +35,15 @@
         <Static id="Static00" taborder="30" text="FileDownload" usedecorate="true" cssclass="_SS_Title3" left="16" top="367" width="325" height="25" style="font:bold 9 dotum;"/>
         <Button id="btn_download01" taborder="32" text="Download" left="341" top="441" height="32" onclick="btn_download01_onclick" width="120"/>
         <Button id="btn_download02" taborder="33" text="Download" left="341" top="481" height="32" onclick="btn_download02_onclick" width="120"/>
-        <Div id="Div00" taborder="34" text="Div00" left="6" top="7" right="0.79%" height="49">
+        <Static id="stt_version" taborder="35" expr="expr:&quot;Version: &quot; + application.gvVersion" text="Version" top="15" right="5" width="120" height="32" style="font:9 dotum;"/>
+        <Div id="Div01" taborder="36" text="Div00" left="7" top="7" right="6" height="49">
           <Layouts>
             <Layout width="1008" height="49">
-              <Combo id="cb_list" taborder="0" displaynulltext="More Sample" innerdataset="@ds_sample_url" codecolumn="URL" datacolumn="CATEGORY" onitemchanged="Div00_cb_list_onitemchanged" left="7" top="7" width="240" height="32"/>
+              <ImageViewer id="ImageViewer00" taborder="9" image="URL('Image::img_imgviewer_N.png')" stretch="fit" left="8" top="5" width="140" height="35" style="border:1 none #6b6b6bff ;"/>
+              <Static id="stt_version" taborder="10" expr="expr:&quot;Version: &quot; + application.gvVersion" text="Version" top="7" right="13" width="160" height="32" style="align:right middle;font:9 Verdana;"/>
             </Layout>
           </Layouts>
         </Div>
-        <Static id="stt_version" taborder="35" expr="expr:&quot;Version: &quot; + application.gvVersion" text="Version" top="15" right="5" width="120" height="32" style="font:9 dotum;"/>
       </Layout>
     </Layouts>
     <Objects>
