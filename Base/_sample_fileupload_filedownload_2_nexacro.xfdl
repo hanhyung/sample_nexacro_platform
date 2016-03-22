@@ -87,7 +87,7 @@ this.btn_download = function(obj:Button,  e:nexacro.ClickEventInfo)
 		if(this.ds_File.getColumn(i,"CHK")==1){
 			var strFileName = this.ds_File.getColumn(i, "FILE_SAVENM");
 			var strOriFileName = this.ds_File.getColumn(i, "FILE_NAME");
-			this.FileDownload00.downloadurl = "TestSvc::filedownload.jsp?file="+strOriFileName;
+			this.FileDownload00.downloadurl = "SvcSelfStudy::fileDownload.jsp?file="+strOriFileName;
 			this.FileDownload00.show();
 			var bSucc = this.FileDownload00.download();
 		}
@@ -99,7 +99,7 @@ this.btn_download = function(obj:Button,  e:nexacro.ClickEventInfo)
 */
 this.btn_upload = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	var strUrl = "TestSvc::fileupload.jsp?PATH=file";	
+	var strUrl = "SvcSelfStudy::fileUpload.jsp?PATH=file";	
 	var bSucc = this.FileUpload00.upload(strUrl);
 }
 

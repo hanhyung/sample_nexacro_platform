@@ -107,8 +107,8 @@ this.btn_upload_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 		}
 	}
 
-	//var sUrl  = "SvcJsp::fileUpload.jsp?PATH=upload";
-	var sUrl  = "http://127.0.0.1:8080/Service/nexacroSelfStudy_JSP/fileUpload.jsp?PATH=upload";
+	//var sUrl  = "SvcSelfStudy::fileUpload.jsp?PATH=upload";
+	var sUrl  = "SvcSelfStudy::fileUpload.jsp?PATH=upload";
 	var bSucc = this.FileUpload00.upload(sUrl);
 	
 }
@@ -122,7 +122,7 @@ this.FileUpload00_onsuccess = function(obj:FileUpload,  e:nexacro.FileUploadEven
 	/* FileDownload 컴포넌트를 클릭하면 업로드한 파일을 다운로드하도록 설정 */
     for (var i = 0; i < e.datasets[0].rowcount; i++)
     {
-        sUrl = "SvcJsp::fileDownload.jsp?file=" + encodeURI(e.datasets[0].getColumn(i,"FILENAME"));
+        sUrl = "SvcSelfStudy::fileDownload.jsp?file=" + encodeURI(e.datasets[0].getColumn(i,"FILENAME"));
         sFileName = e.datasets[0].getColumn(i,"FILENAME");
         
         this.components["FileDownload0" + i].set_text(sFileName);

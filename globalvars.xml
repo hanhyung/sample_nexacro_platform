@@ -89,6 +89,11 @@
         <Col id="CATEGORY">Transaction</Col>
         <Col id="URL">Base::sample_transaction_nexacro14.xfdl</Col>
       </Row>
+      <Row>
+        <Col id="ID">17</Col>
+        <Col id="CATEGORY">FileUpload, FileDownload</Col>
+        <Col id="URL">Base::sample_fileupload_filedownload_nexacro14.xfdl</Col>
+      </Row>
     </Rows>
   </Dataset>
   <Variable id="gvVersion" initval="14.0.0.1101"/>

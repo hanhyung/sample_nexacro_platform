@@ -44,7 +44,7 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
                 <Cell row="2" col="6" style="color:blue;" text="SAT"/>
               </Band>
               <Band id="body">
-                <Cell style="color:red;color2:red;" text="bind:COL_D0"/>
+                <Cell style="line: ;color:red;color2:red;" text="bind:COL_D0"/>
                 <Cell col="1" text="bind:COL_D1"/>
                 <Cell col="2" text="bind:COL_D2"/>
                 <Cell col="3" text="bind:COL_D3"/>
