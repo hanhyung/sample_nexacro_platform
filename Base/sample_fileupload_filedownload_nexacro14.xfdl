@@ -64,6 +64,7 @@ this.sample_file_upload_download_nexacro_onload = function(obj:Form, e:nexacro.L
 	trace("\n[onload]");
 	trace("this.FileUpload00.index: " + this.FileUpload00.index);
 	trace("this.FileUpload00.getItemCount(false): " + this.FileUpload00.getItemCount(false));		
+	
 }
 
 /* 파일 업로드 아이템의 추가 */
@@ -137,7 +138,7 @@ this.FileUpload00_onsuccess = function(obj:FileUpload,  e:nexacro.FileUploadEven
 /* 파일 업로드 실패 이벤트 핸들러 */
 this.FileUpload00_onerror = function(obj:FileUpload,  e:nexacro.FileUploadErrorEventInfo)
 {
-	trace("FileUpload00_onerror: " + e.errormsg);
+	trace("FileUpload00_onerror: " + e.errorcode + " " + e.errormsg);
 }
 
 
