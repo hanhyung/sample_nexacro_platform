@@ -138,9 +138,9 @@ this.FileUpload00_onsuccess = function(obj:FileUpload,  e:nexacro.FileUploadEven
 /* 파일 업로드 실패 이벤트 핸들러 */
 this.FileUpload00_onerror = function(obj:FileUpload,  e:nexacro.FileUploadErrorEventInfo)
 {
-	trace("FileUpload00_onerror: " + e.errorcode + " " + e.errormsg);
-}
 
+	trace("FileUpload00_onerror: [" + e.statuscode + "] " + e.errormsg);
+}
 
 /* 파일 다운로드 성공 이벤트 핸들러 */
 this.FileDownload_onsuccess = function(obj:FileDownload,  e:nexacro.FileDownloadEventInfo)
