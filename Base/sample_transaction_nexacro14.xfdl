@@ -85,7 +85,8 @@ this.btn_inquiry_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
      var args = "";	/* arguments */
      var callback = "fn_callback";	/* 수행이 완료된 후 호출되는 콜백 함수 */
     
-     this.transaction(id, url, reqDs, respDs, args, callback);   	
+     this.transaction(id, url, reqDs, respDs, args, callback);   
+     	
 }
 
 
