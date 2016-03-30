@@ -103,7 +103,7 @@ this.sample_webbrowser_nexacro14_onload = function(obj:Form, e:nexacro.LoadEvent
 	objWebBrowser.show(); 
 		
 	// Setting URL
-	//objWebBrowser.set_url("http://nexacro.github.io/Service/webbrowser.html");
+	//objWebBrowser.set_url("http://127.0.0.1:8080/service/webbrowser.html");
 
 }
 */
