@@ -57,7 +57,7 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
         </Grid>
         <Calendar id="Calendar00" taborder="1" type="monthonly" ondayclick="Calendar00_ondayclick" visible="false" left="48.44%" top="204" height="200" width="240" style="dayfont:9 Arial;font:9 Arial;" oneditclick="Calendar00_oneditclick" locale="en_US" value="null" dateformat="yyyy-MM-dd ddd" onmouseleave="Calendar00_onmouseleave"/>
         <Static id="Static00" taborder="4" text="Edit status:" left="16" top="96" height="32" style="font:10 Verdana;" width="120"/>
-        <Div id="Div00" taborder="6" text="Div00" left="6" top="7" right="0.78%" height="49">
+        <Div id="Div00" taborder="6" text="Div00" left="6" top="7" right="7" height="49">
           <Layouts>
             <Layout width="1008" height="49">
               <ImageViewer id="ImageViewer00" taborder="0" image="URL('Image::img_imgviewer_N.png')" stretch="fit" left="8" top="5" width="140" height="35" style="border:1 none #6b6b6bff ;"/>

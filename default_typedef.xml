@@ -42,9 +42,11 @@
   <Services>
     <Service prefixid="Base" type="form" url="./Base/" version="0" communicationversion="0"/>
     <Service prefixid="Image" type="file" url="./Image/" version="0" communicationversion="0"/>
-    <Service prefixid="Svc" type="JSP" url="http://www.xplatform.co.kr:8080/Next_JSP/nexacro/Service/" cachelevel="none" version="0" communicationversion="0"/>
+    <Service prefixid="SvcLocal" type="JSP" url="http://localhost:8080/service" cachelevel="none" version="0" communicationversion="0"/>
     <Service prefixid="SvcSelfStudy" type="JSP" url="http://demo.nexacro.com/nexacroSelfStudy/JSP/" version="0" communicationversion="0"/>
     <Service prefixid="SvcMan" type="JSP" url="http://demo.nexacro.com/manual/" version="0" communicationversion="0"/>
+    <Service prefixid="Sample" type="form" url="./Sample/" version="0" communicationversion="0"/>
+    <Service prefixid="_Sample" type="form" url="./_Sample/" version="0" communicationversion="0"/>
   </Services>
   <Update/>
 </TypeDefinition>

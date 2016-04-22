@@ -22,4 +22,8 @@
       <Theme url="nexacro_DesignTeam.xtheme" extern="false"/>
     </RecentlyUsed>
   </Themes>
+  <ADL id="MDI" url="FrameSet.xadl"/>
+  <ADL id="VFrameSet" url="VFrameSet.xadl"/>
+  <ADL id="TileFrameSet" url="TileFrameSet.xadl"/>
+  <ADL id="HFrameSet" url="HFrameSet.xadl"/>
 </Project>

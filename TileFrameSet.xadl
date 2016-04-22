@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ADL version="1.2">
+  <TypeDefinition url="default_typedef.xml"/>
+  <GlobalVariables url="globalvars.xml"/>
+  <Application id="TileFrameSet" codepage="" language="" themeid="nexacro_designEDU.xtheme" loginformurl="" loginformstyle="" windowopeneffect="" windowcloseeffect="" version="" tracemode="">
+    <Layout>
+      <MainFrame id="MainFrame" title="maintitle" resizable="true" showtitlebar="true" showtitleicon="true" showstatusbar="true" position1="absolute 0 0 800 800" width="800" height="673" showcascadetitletext="false" titletext="MainFrame" style="titlebarheight:30;">
+        <FrameSet id="FrameSet" showtitlebar="true" showtitleicon="false" titletext="FrameSet" showcascadetitletext="false" style="border:2 solid red ;">
+          <Frames>
+            <TileFrameSet id="TileFrameSet0" separatecount="3" separatetype="horizontal" width="800" height="300" showtitlebar="true" showtitleicon="false" titletext="TileFrameSet:HORIZONTAL" left="0" top="0" style="border:2 solid blue ;" showcascadetitletext="false">
+              <Frames>
+                <ChildFrame id="LeftFrame" style="background:darksalmon;" titletext="ChildFrame::LEFT"/>
+                <ChildFrame id="CenterFrame" style="background:antiquewhite;" titletext="ChildFrame::CENTER"/>
+                <ChildFrame id="RightFrame" style="background:burlywood;" titletext="ChildFrame::RIGHT"/>
+              </Frames>
+            </TileFrameSet>
+            <TileFrameSet id="TileFrameSet1" separatecount="3" width="800" height="300" titletext="TileFrameSet:VERTICAL" showtitlebar="true" showtitleicon="false" left="0" top="300" separatetype="vertical" style="border:2 solid blue ;" showcascadetitletext="false">
+              <Frames>
+                <ChildFrame id="TopFrame" style="background:darksalmon;" titletext="ChildFrame::TOP"/>
+                <ChildFrame id="MiddleFrame" style="background:antiquewhite;" titletext="ChildFrame::MIDDLE"/>
+                <ChildFrame id="BottomFrame" style="background:burlywood;" titletext="ChildFrame::BOTTOM"/>
+              </Frames>
+            </TileFrameSet>
+          </Frames>
+        </FrameSet>
+      </MainFrame>
+    </Layout>
+  </Application>
+</ADL>

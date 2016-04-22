@@ -10,7 +10,7 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
   <Form id="sample_calendar_nexacro" classname="sample_calendar_nexacro" left="0" top="0" width="1024" height="768" titletext="New Form" onload="sample_calendar_nexacro_onload">
     <Layouts>
       <Layout>
-        <Calendar id="Calendar00" taborder="0" left="16" top="128" height="20" width="240" style="popupsize:240 186;popupborder:1 solid #808080ff ;trailingdaycolor:gray;" locale="en_US" value="null" dateformat="yyyy-MM-dd ddd" type="normal"/>
+        <Calendar id="Calendar00" taborder="0" left="16" top="128" height="20" width="240" style="popupsize:240 186;popupborder:1 solid #808080ff ;trailingdaycolor:gray;" locale="en_US" value="null" dateformat="yyyy-MM-dd ddd" type="normal" autoselect="true"/>
         <Div id="Div01" taborder="5" text="Div00" left="7" top="7" right="6" height="49">
           <Layouts>
             <Layout width="1008" height="49">

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ADL version="1.2">
+  <TypeDefinition url="default_typedef.xml"/>
+  <GlobalVariables url="globalvars.xml"/>
+  <Application id="VFrameSet" codepage="" language="" themeid="nexacro_designEDU.xtheme" loginformurl="" loginformstyle="" windowopeneffect="" windowcloseeffect="" version="" tracemode="">
+    <Layout>
+      <MainFrame id="MainFrame" title="maintitle" resizable="true" showtitlebar="true" showtitleicon="true" showstatusbar="true" position1="absolute 0 0 800 800" width="800" height="600" titletext="MainFrame" showcascadetitletext="false">
+        <VFrameSet id="VFrameSet" titletext="VFrameSet" showtitlebar="true" showcascadetitletext="false" style="border:2 solid red ;">
+          <Frames>
+            <ChildFrame id="TopFrame" titletext="ChildFrame::TOP" showtitlebar="true" showtitleicon="true" style="background:darksalmon;"/>
+            <ChildFrame id="MiddleFrame" titletext="ChildFrame::MIDDLE" style="background:antiquewhite;"/>
+            <ChildFrame id="BottomFrame" titletext="ChildFrame::BOTTOM" style="background:burlywood;"/>
+          </Frames>
+        </VFrameSet>
+      </MainFrame>
+    </Layout>
+  </Application>
+</ADL>

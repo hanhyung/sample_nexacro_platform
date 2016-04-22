@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ADL version="1.2">
+  <TypeDefinition url="default_typedef.xml"/>
+  <GlobalVariables url="globalvars.xml"/>
+  <Application id="MDI" codepage="" language="" themeid="nexacro_designEDU.xtheme" loginformurl="" loginformstyle="" windowopeneffect="" windowcloseeffect="" version="" tracemode="">
+    <Layout>
+      <MainFrame id="MainFrame" title="maintitle" resizable="true" showtitlebar="true" showtitleicon="false" showstatusbar="true" position1="absolute 0 0 800 800" width="800" height="600" style="showzoomcombo:false;titlebarheight:30;statusbarheight:20;" showcascadestatustext="false" showcascadetitletext="false" layered="false" titletext="MainFrame">
+        <FrameSet id="FrameSet" showcascadestatustext="false" showcascadetitletext="false" left="0" top="0" width="800" height="600" titletext="FrameSet" showtitlebar="true" showtitleicon="false" style="border:2 solid red ;">
+          <Frames>
+            <ChildFrame id="TopFrame" resizable="false" showtitlebar="true" height="100" width="800" left="0" top="0" showcascadetitletext="false" showcascadestatustext="false" showtitleicon="false" dragmovetype="normal" style="background:antiquewhite;border:0 none #808080ff ;" openstatus="normal" titletext="ChildFrame::TOP"/>
+            <HFrameSet id="HFrameSet" width="800" height="350" left="0" top="100" showcascadestatustext="false" showcascadetitletext="false" showtitleicon="false" separatesize="200,*" titletext="HFrameSet" showtitlebar="true" style="border:2 solid blue ;">
+              <Frames>
+                <ChildFrame id="LeftFrame" height="400" width="200" top="0" left="0" showcascadestatustext="false" showcascadetitletext="false" showtitlebar="true" showtitleicon="false" style="background:darksalmon;border:0 none #808080ff ;" titletext="ChildFrame::LEFT"/>
+                <ChildFrame id="RightFrame" width="600" height="400" top="0" left="200" showtitlebar="true" showtitleicon="false" showcascadestatustext="false" showcascadetitletext="false" style="background:burlywood;border:0 none #808080ff ;" titletext="ChildFrame::RIGHT"/>
+              </Frames>
+            </HFrameSet>
+            <ChildFrame id="BottomFrame" width="800" height="80" top="450" left="0" showcascadestatustext="false" showcascadetitletext="false" showtitlebar="true" showtitleicon="false" dragmovetype="normal" style="background:mistyrose;border:0 none #808080ff ;" titletext="ChildFrame::BOTTOM"/>
+          </Frames>
+        </FrameSet>
+      </MainFrame>
+    </Layout>
+  </Application>
+</ADL>

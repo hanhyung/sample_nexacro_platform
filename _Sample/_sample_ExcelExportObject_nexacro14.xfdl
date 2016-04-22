@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="sample_ExcelExportObject_nexacro14" classname="sample_ExcelExportObject_nexacro14" left="0" top="0" width="1024" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Grid id="grid_export" taborder="0" binddataset="ds_excel_exp" useinputpanel="false" autofittype="col" left="33" top="63" width="223" height="146">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+                <Row size="24" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="No"/>
+                <Cell col="1" text="Name"/>
+                <Cell col="2" text="Department"/>
+              </Band>
+              <Band id="body">
+                <Cell text="expr:currow+1"/>
+                <Cell col="1" style="background2:aqua;" text="bind:NAME"/>
+                <Cell col="2" displaytype="combo" style="background2:aqua;" text="bind:DEPT" combodataset="ds_dept" combocodecol="CODE" combodatacol="VALUE"/>
+              </Band>
+              <Band id="summary">
+                <Cell colspan="3" text="TOTAL"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button02" taborder="1" text="Export" onclick="Button02_onclick" cssclass="_SS_Title4" left="33" top="223" width="111" height="25"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_excel_exp" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column type="STRING" size="255" id="DEPT"/>
+          <Column type="STRING" size="255" id="NAME"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="DEPT">01</Col>
+            <Col id="NAME">John Doe</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT">02</Col>
+            <Col id="NAME">Jane Doe</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT">03</Col>
+            <Col id="NAME">John Smith</Col>
+          </Row>
+          <Row>
+            <Col id="DEPT">04</Col>
+            <Col id="NAME">Jane Smith</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_dept" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column type="STRING" size="255" id="CODE"/>
+          <Column type="STRING" size="255" id="VALUE"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">01</Col>
+            <Col id="VALUE">Human Resources</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">02</Col>
+            <Col id="VALUE">General Affairs</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">03</Col>
+            <Col id="VALUE">Research</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">04</Col>
+            <Col id="VALUE">Technology</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[// (1) Export
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.exportObj = new ExcelExportObject("Export00", this);
+	this.exportObj.addEventHandler("onsuccess" , this.Export00_onsuccess , this);
+	this.exportObj.set_exportfilename("ExcelExportFile");
+	this.exportObj.set_exporturl("SvcLocal::XExportImport");
+	this.exportObj.addExportItem(nexacro.ExportItemTypes.GRID, this.grid_export, "Sheet1!A1");
+	this.exportObj.exportData();
+}
+
+this.Export00_onsuccess = function(obj:ExcelExportObject, e:nexacro.ExcelExportEventInfo)
+{
+	trace("success");
+}
+
+]]></Script>
+  </Form>
+</FDL>

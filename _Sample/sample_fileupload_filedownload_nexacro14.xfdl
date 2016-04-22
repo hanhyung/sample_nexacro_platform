@@ -5,7 +5,7 @@
     <Layouts>
       <Layout>
         <Button id="btn_upload" taborder="1" text="Upload" position="absolute" onclick="btn_upload_onclick" left="342" top="226" width="120" height="32"/>
-        <FileDownload id="FileDownload00" taborder="2" text="FileDownload00" position="absolute" left="32" top="401" width="299" height="30" onsuccess="FileDownload_onsuccess"/>
+        <FileDownload id="FileDownload00" taborder="2" text="FileDownload00" position="absolute" left="32" top="401" width="299" height="30" onsuccess="FileDownload_onsuccess" onclick="FileDownload00_onclick"/>
         <FileDownload id="FileDownload01" taborder="3" retry="0" text="FileDownload01" position="absolute" left="32" top="441" width="299" height="30" onsuccess="FileDownload_onsuccess"/>
         <FileDownload id="FileDownload02" taborder="4" retry="0" text="FileDownload02" position="absolute" left="32" top="481" width="299" height="30" onsuccess="FileDownload_onsuccess"/>
         <Button id="btn_download00" taborder="5" text="Download" position="absolute" left="341" width="120" top="400" height="32" onclick="btn_download00_onclick"/>
@@ -181,15 +181,6 @@ this.btn_download02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 		this.FileDownload02.download();	
 	}
 }
-
-
-/* 샘플 리스트로 이동 */
-this.Div00_cb_list_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
-{	
-	this.go(application.ds_sample_url.getColumn(e.postindex, "URL"));
-	
-}
-
 ]]></Script>
   </Form>
 </FDL>

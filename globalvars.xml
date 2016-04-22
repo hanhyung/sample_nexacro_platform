@@ -11,91 +11,91 @@
     <Rows>
       <Row>
         <Col id="CATEGORY">Combo</Col>
-        <Col id="URL">Base::sample_combo_nexacro14.xfdl</Col>
+        <Col id="URL">Sample::sample_combo_nexacro14.xfdl</Col>
         <Col id="ID">1</Col>
       </Row>
       <Row>
         <Col id="CATEGORY">Dataset &gt; sort</Col>
-        <Col id="URL">Base::sample_dataset_sort_nexacro14.xfdl</Col>
+        <Col id="URL">Sample::sample_dataset_sort_nexacro14.xfdl</Col>
         <Col id="ID">2</Col>
       </Row>
       <Row>
         <Col id="CATEGORY">Grid &gt; Calendar</Col>
-        <Col id="URL">Base::sample_grid_calendar_nexacro14.xfdl</Col>
+        <Col id="URL">Sample::sample_grid_calendar_nexacro14.xfdl</Col>
         <Col id="ID">3</Col>
       </Row>
       <Row>
         <Col id="ID">4</Col>
         <Col id="CATEGORY">Grid &gt; Cell &gt; display</Col>
-        <Col id="URL">Base::sample_grid_cell_display_nexacro14.xfdl</Col>
+        <Col id="URL">Sample::sample_grid_cell_display_nexacro14.xfdl</Col>
       </Row>
       <Row>
         <Col id="CATEGORY">Grid &gt; Cell &gt; edit</Col>
-        <Col id="URL">Base::sample_grid_cell_edit_nexacro14.xfdl</Col>
+        <Col id="URL">Sample::sample_grid_cell_edit_nexacro14.xfdl</Col>
         <Col id="ID">5</Col>
       </Row>
       <Row>
         <Col id="CATEGORY">Grid &gt; select</Col>
-        <Col id="URL">Base::sample_grid_select_nexacro14.xfdl</Col>
+        <Col id="URL">Sample::sample_grid_select_nexacro14.xfdl</Col>
         <Col id="ID">6</Col>
       </Row>
       <Row>
         <Col id="ID">7</Col>
         <Col id="CATEGORY">Grid &gt; subsum</Col>
-        <Col id="URL">Base::sample_grid_subsum_nexacro14.xfdl</Col>
+        <Col id="URL">Sample::sample_grid_subsum_nexacro14.xfdl</Col>
       </Row>
       <Row>
         <Col id="CATEGORY">ListBox</Col>
-        <Col id="URL">Base::sample_listbox_nexacro14.xfdl</Col>
+        <Col id="URL">Sample::sample_listbox_nexacro14.xfdl</Col>
         <Col id="ID">8</Col>
       </Row>
       <Row>
         <Col id="CATEGORY">MaskEdit</Col>
-        <Col id="URL">Base::sample_maskedit_nexacro14.xfdl</Col>
+        <Col id="URL">Sample::sample_maskedit_nexacro14.xfdl</Col>
         <Col id="ID">9</Col>
       </Row>
       <Row>
         <Col id="CATEGORY">Menu</Col>
-        <Col id="URL">Base::sample_menu_nexacro14.xfdl</Col>
+        <Col id="URL">Sample::sample_menu_nexacro14.xfdl</Col>
         <Col id="ID">10</Col>
       </Row>
       <Row>
         <Col id="CATEGORY">ProgressBar</Col>
-        <Col id="URL">Base::sample_progressbar_nexacro14.xfdl</Col>
+        <Col id="URL">Sample::sample_progressbar_nexacro14.xfdl</Col>
         <Col id="ID">11</Col>
       </Row>
       <Row>
         <Col id="CATEGORY">Step</Col>
-        <Col id="URL">Base::sample_step_nexacro14.xfdl</Col>
+        <Col id="URL">Sample::sample_step_nexacro14.xfdl</Col>
         <Col id="ID">12</Col>
       </Row>
       <Row>
         <Col id="ID">13</Col>
         <Col id="CATEGORY">DOM</Col>
-        <Col id="URL">Base::sample_dom_nexacro14.xfdl</Col>
+        <Col id="URL">Sample::sample_dom_nexacro14.xfdl</Col>
       </Row>
       <Row>
         <Col id="ID">14</Col>
         <Col id="CATEGORY">FlashPlayer</Col>
-        <Col id="URL">Base::sample_flashplayer_nexacro14.xfdl</Col>
+        <Col id="URL">Sample::sample_flashplayer_nexacro14.xfdl</Col>
       </Row>
       <Row>
         <Col id="ID">15</Col>
         <Col id="CATEGORY">WebBrowser</Col>
-        <Col id="URL">Base::sample_webbrowser_nexacro14.xfdl</Col>
+        <Col id="URL">Sample::sample_webbrowser_nexacro14.xfdl</Col>
       </Row>
       <Row>
         <Col id="ID">16</Col>
         <Col id="CATEGORY">Transaction</Col>
-        <Col id="URL">Base::sample_transaction_nexacro14.xfdl</Col>
+        <Col id="URL">Sample::sample_transaction_nexacro14.xfdl</Col>
       </Row>
       <Row>
         <Col id="ID">17</Col>
         <Col id="CATEGORY">FileUpload, FileDownload</Col>
-        <Col id="URL">Base::sample_fileupload_filedownload_nexacro14.xfdl</Col>
+        <Col id="URL">Sample::sample_fileupload_filedownload_nexacro14.xfdl</Col>
       </Row>
     </Rows>
   </Dataset>
-  <Variable id="gvVersion" initval="14.0.0.1300"/>
+  <Variable id="gvVersion" initval="14.0.0.1301"/>
   <Variable id="gvDebug" initval="true"/>
 </GlobalVariables>

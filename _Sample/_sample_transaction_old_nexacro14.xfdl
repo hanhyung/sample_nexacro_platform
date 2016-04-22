@@ -2,7 +2,7 @@
 <!--
 Transaction: executing the transaction method
 
-The transaction method executes the service (Svc::Service_Default.jsp) 
+The transaction method executes the service (SvcLocal::Service_Default.jsp) 
 and then obtains the result in the form of a dataset. 
 A callback function (fn_callback) will follow to display the duration spent processing the service.
 
@@ -122,7 +122,7 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
 Service URL to be called by the transaction method
 Svc = http://www.xplatform.co.kr:8080/Next_JSP/nexacro/Service/ 
 */
-var serviceURL = "Svc::Service_Default.jsp";
+var serviceURL = "SvcLocal::Service_Default.jsp";
 
 /* Executing the transaction method */
 this.btn_inquiry_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)

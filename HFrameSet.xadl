@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ADL version="1.2">
+  <TypeDefinition url="default_typedef.xml"/>
+  <GlobalVariables url="globalvars.xml"/>
+  <Application id="HFrameSet" codepage="" language="" themeid="nexacro_designEDU.xtheme" loginformurl="" loginformstyle="" windowopeneffect="" windowcloseeffect="" version="" tracemode="">
+    <Layout>
+      <MainFrame id="MainFrame" title="maintitle" resizable="true" showtitlebar="true" showtitleicon="true" showstatusbar="true" position1="absolute 0 0 800 800" width="800" height="600" titletext="MainFrame" showcascadetitletext="false">
+        <HFrameSet id="HFrameSet" titletext="HFrameSet" showcascadetitletext="false" showtitlebar="true" style="border:2 solid red ;">
+          <Frames>
+            <ChildFrame id="LeftFrame" titletext="ChildFrame::LEFT" style="background:darksalmon;"/>
+            <ChildFrame id="CenterFrame" titletext="ChildFrame::CENTER" style="background:antiquewhite;"/>
+            <ChildFrame id="RightFrame" titletext="ChildFrame::RIGHT" style="background:burlywood;"/>
+          </Frames>
+        </HFrameSet>
+      </MainFrame>
+    </Layout>
+  </Application>
+</ADL>

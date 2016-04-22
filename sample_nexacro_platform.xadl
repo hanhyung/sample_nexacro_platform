@@ -8,6 +8,5 @@
         <ChildFrame id="childframe" formurl="Base::sample_code_nexacro14.xfdl" showtitlebar="false" showstatusbar="false" openeffect="" closeeffect="" titletext="Nexacro Platform Sample Code" width="0px" autosize="true"/>
       </MainFrame>
     </Layout>
-    <ScreenInfo/>
   </Application>
 </ADL>

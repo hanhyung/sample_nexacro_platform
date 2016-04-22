@@ -13,7 +13,7 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
   <Form id="sample_progressbar_nexacro14" classname="sample_progressbar_nexacro" left="0" top="0" width="1024" height="768" titletext="ProgressBar" ontimer="sample_progressbar_nexacro_ontimer">
     <Layouts>
       <Layout>
-        <ProgressBar id="ProgressBar00" taborder="0" text="ProgressBar00" left="16" top="96" height="32" width="400" step="1"/>
+        <ProgressBar id="ProgressBar00" taborder="0" text="ProgressBar00" left="16" top="96" height="32" width="400" step="1" style="bartype:image;smooth:true;"/>
         <ProgressBar id="ProgressBar01" taborder="1" text="ProgressBar01" left="16" top="132" height="28" width="400" step="4" style="direction:backward;"/>
         <Button id="btn_start" taborder="2" text="START" onclick="btn_start_onclick" left="16" top="168" height="32" width="120" style="font:9 Arial;"/>
         <Button id="btn_reset" taborder="3" text="RESET" onclick="btn_reset_onclick" left="140" top="168" height="32" width="120" style="font:9 Arial;"/>

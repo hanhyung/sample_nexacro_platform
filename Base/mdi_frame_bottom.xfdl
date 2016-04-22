@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="mdi_frame_bottom" classname="mdi_frame_bottom" left="0" top="0" width="800" height="50" titletext="New Form" style="background:mistyrose;">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="0" text="FrameSet &gt; BOTTOM frame" left="0%" top="0" height="50" onclick="Static00_onclick" width="800" style="align:center middle;font:bold 10 Verdana;"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[]]></Script>
+  </Form>
+</FDL>

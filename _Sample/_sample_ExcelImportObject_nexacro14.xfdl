@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="sample_ExcelImportObject_nexacro14" classname="sample_ExcelImportObject_nexacro14" left="0" top="0" width="1024" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Button id="Button00" taborder="0" text="Import" onclick="Button01_onclick" left="33" top="65" width="247" height="25"/>
+        <Grid id="Grid01" taborder="1" binddataset="ds_import" useinputpanel="false" left="33" top="98" width="247" height="119">
+          <Formats/>
+        </Grid>
+        <Button id="Button09" taborder="2" text="CSV ▶ Dataset ▶ Grid" onclick="Button09_onclick" cssclass="_SS_Title4" left="33" top="254" width="247" height="25"/>
+        <Grid id="Grid00" taborder="3" binddataset="ds_cvs_imp" useinputpanel="false" autofittype="col" left="33" top="287" width="247" height="119">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Col size="80"/>
+                <Col size="80"/>
+                <Col size="80"/>
+              </Columns>
+              <Rows>
+                <Row band="head" size="24"/>
+                <Row band="body" size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell col="0" disptype="normal" text="COL1"/>
+                <Cell col="1" disptype="normal" text="COL2"/>
+                <Cell col="2" disptype="normal" text="COL3"/>
+              </Band>
+              <Band id="body">
+                <Cell col="0" disptype="normal" text="bind:COL1"/>
+                <Cell col="1" disptype="normal" text="bind:COL2"/>
+                <Cell col="2" disptype="normal" text="bind:COL3"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_cvs_imp" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column type="STRING" size="256" id="COL1"/>
+          <Column type="STRING" size="256" id="COL2"/>
+          <Column type="STRING" size="256" id="COL3"/>
+        </ColumnInfo>
+        <Rows/>
+      </Dataset>
+      <Dataset id="ds_import" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column type="STRING" size="256" id="COL1"/>
+          <Column type="STRING" size="256" id="COL2"/>
+          <Column type="STRING" size="256" id="COL3"/>
+        </ColumnInfo>
+        <Rows/>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[// (1) Import
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.importObj = new ExcelImportObject("Import00", this);
+	this.importObj.set_importtype(nexacro.ImportTypes.EXCEL);
+	this.importObj.set_importurl("SvcLocal::XImport");
+	this.importObj.addEventHandler("onsuccess", this.Import00_onsuccess, this);
+	this.importObj.importData("","Sheet1!A1:F6","ds_import");	
+}
+
+this.Import00_onsuccess = function(obj:ExcelImportObject, e:nexacro.ExcelImportEventInfo)
+{
+	this.Grid01.createFormat();
+}
+
+// (2) CSV ▶ Dataset ▶ Grid
+this.Button09_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sBuff = this.ta_csv.value;
+	this.ds_cvs_imp.clear();
+	this.ds_cvs_imp.loadCSV(sBuff, true);
+}]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="sample_frame_nexacro14" classname="sample_frame_nexacro14" left="0" top="0" width="1024" height="768" titletext="New Form" onload="sample_frame_nexacro14_onload">
+    <Layouts>
+      <Layout/>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.sample_frame_nexacro14_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	//system.execBrowser("http://localhost:8080/
+}
+]]></Script>
+  </Form>
+</FDL>

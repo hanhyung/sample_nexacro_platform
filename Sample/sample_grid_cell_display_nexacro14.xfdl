@@ -64,7 +64,7 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
           </Formats>
         </Grid>
         <Button id="btn_reset" taborder="1" text="Reset" left="148" top="253" height="32" onclick="btn_reset_onclick" width="120" style="font:9 Arial;"/>
-        <Div id="Div00" taborder="2" text="Div00" left="7" top="7" right="0.78%" height="49">
+        <Div id="Div00" taborder="2" text="Div00" left="7" top="7" right="7" height="49">
           <Layouts>
             <Layout width="1008" height="49">
               <ImageViewer id="ImageViewer00" taborder="0" left="8" top="5" height="35" width="140" image="URL('Image::img_imgviewer_N.png')" stretch="fit" style="border:1 none #6b6b6bff ;"/>
