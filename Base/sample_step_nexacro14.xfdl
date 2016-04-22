@@ -7,7 +7,7 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
 -->
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="sample_step_nexacro14" classname="sample_step_nexacro" left="0" top="0" width="1024" height="768" titletext="Step" onload="sample_step_nexacro14_onload" style="stepshowtype:action;stepalign:center bottom;">
+  <Form id="sample_step_nexacro14" classname="sample_step_nexacro" left="0" top="0" width="1024" height="768" titletext="Step" onload="sample_step_nexacro14_onload" style="stepshowtype:always;stepalign:center bottom;">
     <Layouts>
       <Layout stepindex="" stepcount="3">
         <Static id="Static00" taborder="0" text="step 1 of 3" left="16" top="64" height="32" width="80" style="font:bold 10 Verdana;"/>
