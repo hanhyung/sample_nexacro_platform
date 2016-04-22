@@ -96,6 +96,10 @@
       </Row>
     </Rows>
   </Dataset>
+<<<<<<< HEAD
   <Variable id="gvVersion" initval="14.0.0.1301"/>
+=======
+  <Variable id="gvVersion" initval="14.0.0.1201"/>
+>>>>>>> parent of 9d11864... WebBrowser 샘플 설명 수정
   <Variable id="gvDebug" initval="true"/>
 </GlobalVariables>

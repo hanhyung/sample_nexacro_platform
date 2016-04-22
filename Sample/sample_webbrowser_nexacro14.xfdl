@@ -2,25 +2,6 @@
 <!-- 
 WebBrowser 컴포넌트
 
-nexacro platform에서는 WebBrowser 컴포넌트를 사용하여 웹 페이지를 삽입할 수 있습니다.
-nexacro platform과 임베딩된 웹 페이지간에 데이터를 교환하는 방법은 아래와 같습니다.
-
-1. nexacro platform에서 web page로 데이터 전달
-nexacro platform에서 callMethod 메소드를 사용하여 웹 페이지에 있는 함수를 호출하고
-인수를 전달합니다. 
-
-2. web page에서 nexacro platform으로 데이터 전달
-웹 페이지에서는 on_fire_onusernotify 함수를 사용하여 nexacro platform으로
-데이터를 전달합니다.
-웹 페이지에서 on_fire_onusernotify 함수를 호출하면
-nexacro platform에서 onusernotify 이벤트가 발생합니다.
-전달받은 데이터는 e.userdata를 통해 받을 수 있습니다.
-
-3. nexacro platfrom에서 웹페이지의 변수 설정
-nexacro platform에서 getProperty, setProperty 메소드를 사용하여
-웹 페이지의 변수를 설정할 수 있습니다.
-
-
 샘플 코드 사용에 대한 자세한 정보는 아래 링크를 참조하십시오.
 https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
 -->
@@ -37,27 +18,13 @@ https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
             </Layout>
           </Layouts>
         </Div>
-        <WebBrowser id="WebBrowser00" left="16" top="312" height="320" taborder="8" url="http://nexacro.github.io/Service/webbrowser.html" width="640" onusernotify="WebBrowser00_onusernotify"/>
-        <Div id="Div01" taborder="11" text="Div01" left="16" top="96" height="96" width="640">
-          <Layouts>
-            <Layout>
-              <Button id="btn_set_input_value00" taborder="0" text="Set input value" onclick="btn_set_input_value_onclick" left="13" top="53" width="120" height="32"/>
-              <Edit id="edt_set_input_value" taborder="1" value="This is text in nexacro platform." left="137" top="53" width="360" height="32"/>
-              <Static id="stt_get_input_value" taborder="2" left="137" top="13" width="360" height="32" style="border:1 dotted #808080ff ;"/>
-              <Button id="btn_get_input_value00" taborder="3" text="Get input value" onclick="btn_get_input_value_onclick" left="13" top="13" width="120" height="32"/>
-            </Layout>
-          </Layouts>
-        </Div>
-        <Div id="Div02" taborder="12" text="Div02" left="16" top="200" height="96" width="640">
-          <Layouts>
-            <Layout>
-              <Static id="stt_get_variable" taborder="0" left="137" top="11" width="360" height="32" style="border:1 dotted #808080ff ;"/>
-              <Button id="btn_set_strHTML00" taborder="1" text="Set Variable&#13;&#10;(strHTML)" onclick="btn_set_strHTML_onclick" left="13" top="51" width="120" height="32"/>
-              <Edit id="edt_set_variable" taborder="2" value="This is the value set to strHTML variable in HTML page." left="137" top="51" width="360" height="32"/>
-              <Button id="btn_get_strHTML00" taborder="3" text="Get Variable&#13;&#10;(strHTML)" onclick="btn_get_strHTML_onclick" left="13" top="11" width="120" height="32"/>
-            </Layout>
-          </Layouts>
-        </Div>
+        <Button id="btn_get_input_value" taborder="1" text="Get input value" onclick="btn_get_input_value_onclick" left="16" top="96" width="120" height="32"/>
+        <Button id="btn_get_strHTML" taborder="2" text="Get strHTML" onclick="btn_get_strHTML_onclick" left="16" top="176" width="120" height="32"/>
+        <Button id="btn_set_input_value" taborder="3" text="Set input value" onclick="btn_set_input_value_onclick" left="16" top="136" width="120" height="32"/>
+        <Edit id="Edit01" taborder="5" value="This is text in nexacro platform." left="140" top="136" width="360" height="32"/>
+        <Static id="Static00" taborder="6" left="140" top="176" width="360" height="32" style="border:1 dotted #808080ff ;"/>
+        <Static id="Static01" taborder="7" left="140" top="96" width="360" height="32" style="border:1 dotted #808080ff ;"/>
+        <WebBrowser id="WebBrowser00" left="16" top="224" height="320" taborder="8" url="http://nexacro.github.io/Service/webbrowser.html" width="640" onusernotify="WebBrowser00_onusernotify"/>
       </Layout>
     </Layouts>
     <Script type="xscript5.0"><![CDATA[/*
@@ -75,6 +42,7 @@ this.btn_get_input_value_onclick = function(obj:Button,  e:nexacro.ClickEventInf
 		_win.destroy();
 		_win = null;
 	}
+		
 }
 
 /*
@@ -85,13 +53,14 @@ this.btn_set_input_value_onclick = function(obj:Button,  e:nexacro.ClickEventInf
 {
 	var _win = this.WebBrowser00.getProperty("window");
 	
-	_win.callMethod("setInputValue", this.Div01.edt_set_input_value.value);
+	_win.callMethod("setInputValue", this.Edit01.value);
 	
 	if(_win)
 	{
 		_win.destroy();
 		_win = null;
-	}		
+	}
+		
 }
 
 /*
@@ -108,36 +77,36 @@ this.btn_get_strHTML_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 		_win = null;
 	}
 	
-	this.Div02.stt_get_variable.set_text(str);
+	this.Static00.set_text(str);	
 }
 
-/*
-html 페이지의 strHTML 변수의 값을 넥사크로플랫폼에서 설정
-*/
-this.btn_set_strHTML_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
-{
-	var _win = this.WebBrowser00.getProperty("window");
-	var str = _win.setProperty("strHTML", this.Div02.edt_set_variable.value);
-	
-	if(_win)
-	{
-		_win.destroy();
-		_win = null;
-	}	
-}
-
-
-/*
-WebBrowser 컴포넌트에서 넥사크로 애플리케이션으로의 알림 이벤트를
-처리하기 위한 이벤트 핸들러
-*/
+/* WebBrowser 컴포넌트에서 넥사크로 애플리케이션으로의 알림 이벤트를 처리하기 위한 이벤트 핸들러 */
 this.WebBrowser00_onusernotify = function(obj:WebBrowser, e:nexacro.WebTitleChangeEventInfo)
 {	
 	trace("WebBrowser00_onusernotify: " + e.userdata);
 	
-	this.Div01.stt_get_input_value.set_text(e.userdata);		
+	this.Static01.set_text(e.userdata);
+		
 }
 
+/*
+this.sample_webbrowser_nexacro14_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+
+	// 브라우저 객체 생성 및 초기화
+	var objWebBrowser = new WebBrowser("WebBrowser00", "absolute", 16, 224, 640, 320, null, null);
+
+	// 브라우저 객체를 폼의 자식 객체로 추가
+	this.addChild("WebBrowser00", objWebBrowser); 
+	 	 
+	// Show WebBrowser object
+	objWebBrowser.show(); 
+		
+	// Setting URL
+	//objWebBrowser.set_url("http://127.0.0.1:8080/service/webbrowser.html");
+
+}
+*/
 ]]></Script>
   </Form>
 </FDL>
