@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+MaskEdit:
+
+MaskEdit의 mask 속성을 설정하여 사용자가 특정 형식으로 입력하게 한다.
+type, limitbymask 속성의 설정에 따라 사용자의 입력을 제한할 수 있다.
+
+샘플 코드 사용에 대한 자세한 정보는 아래 링크를 참조하십시오.
+https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
+-->
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="sample_maskedit_nexacro14" classname="sample_maskedit_nexacro" left="0" top="0" width="1024" height="768" titletext="MaskEdit" onload="sample_maskedit_nexacro_onload">
+    <Layouts>
+      <Layout>
+        <MaskEdit id="MaskEdit00" taborder="0" left="16" top="96" height="24" width="240" style="background:burlywood;align:right middle;font:9 Arial;" type="string" mask="AAAAAA - ##### - @@@@@"/>
+        <Static id="Static00" taborder="3" text="Mask type:" left="16" top="64" height="32" style="font:10 Verdana;" width="120"/>
+        <Static id="Static01" taborder="4" text="String" left="96" top="64" height="32" style="color:red;font:10 Verdana;" width="120"/>
+        <Static id="Static02" taborder="5" text="AAAAAA - ##### - @@@@@" left="264" top="92" height="32" width="240" style="font:9 Verdana;"/>
+        <Static id="Static03" taborder="6" text="-#,###.####" left="264" top="160" height="32" width="240" style="font:9 Verdana;"/>
+        <Div id="Div00" taborder="7" text="Div00" left="7" top="7" right="6" height="49">
+          <Layouts>
+            <Layout width="1008" height="49">
+              <ImageViewer id="ImageViewer00" taborder="0" image="URL('Image::img_imgviewer_N.png')" stretch="fit" left="8" top="5" width="140" height="35" style="border:1 none #6b6b6bff ;"/>
+              <Static id="stt_version" taborder="8" expr="expr:&quot;Version: &quot; + application.gvVersion" text="Version" top="7" right="13" width="160" height="32" style="align:right middle;font:9 Verdana;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <MaskEdit id="MaskEdit01" taborder="8" type="number" left="16" top="164" width="240" height="24" style="background:burlywood;align:right middle;font:9 Arial;" mask="-#,###.####" limitbymask="both"/>
+        <Static id="Static04" taborder="9" text="Mask type:" left="16" top="136" width="120" height="32" style="font:10 Verdana;"/>
+        <Static id="Static05" taborder="10" text="Number" left="96" top="136" width="120" height="32" style="color:red;font:10 Verdana;"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[this.sample_maskedit_nexacro_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.MaskEdit00.setFocus();
+	
+}
+]]></Script>
+  </Form>
+</FDL>

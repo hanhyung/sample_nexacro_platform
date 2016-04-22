@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+Step: 폼의 stepcount 속성을 설정하면 스텝 기능을 사용할 수 있습니다.
+
+샘플 코드 사용에 대한 자세한 정보는 아래 링크를 참조하십시오.
+https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
+-->
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="sample_step_nexacro14" classname="sample_step_nexacro" left="0" top="0" width="1024" height="768" titletext="Step" onload="sample_step_nexacro14_onload" style="stepshowtype:action;stepalign:center bottom;">
+    <Layouts>
+      <Layout stepindex="" stepcount="3">
+        <Static id="Static00" taborder="0" text="step 1 of 3" left="16" top="64" height="32" width="80" style="font:bold 10 Verdana;"/>
+        <Static id="Static01" taborder="1" text="step 2 of 3" left="16" top="64" height="32" positionstep="1" width="80" style="font:bold 10 Verdana;"/>
+        <Static id="Static02" taborder="2" text="step 3 of 3" left="16" top="64" height="32" positionstep="2" width="80" style="font:bold 10 Verdana;"/>
+        <Layouts/>
+        <Div id="Div00" taborder="3" text="DIV01" left="16" top="96" height="240" width="480" style="font:bold 48 Arial;" positionstep="0"/>
+        <Div id="Div01" taborder="4" text="DIV02" left="16" top="96" height="240" positionstep="1" width="480" style="font:bold 48 Arial;"/>
+        <Div id="Div02" taborder="5" text="DIV03" positionstep="2" left="16" top="96" height="240" width="480" style="font:bold 48 Arial;"/>
+        <Div id="Div03" taborder="6" text="Div00" left="7" top="7" height="49" right="0.78%">
+          <Layouts>
+            <Layout width="1008" height="49">
+              <ImageViewer id="ImageViewer00" taborder="4" image="URL('Image::img_imgviewer_N.png')" stretch="fit" left="8" top="5" width="140" height="35" style="border:1 none #6b6b6bff ;"/>
+              <Static id="stt_version" taborder="5" expr="expr:&quot;Version: &quot; + application.gvVersion" text="Version" top="7" right="13" width="160" height="32" style="align:right middle;font:9 Verdana;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div04" taborder="7" text="Div00" left="7" top="7" right="0.78%" height="49" positionstep="1">
+          <Layouts>
+            <Layout width="1008" height="49">
+              <ImageViewer id="ImageViewer00" taborder="4" image="URL('Image::img_imgviewer_N.png')" stretch="fit" left="8" top="5" width="140" height="35" style="border:1 none #6b6b6bff ;"/>
+              <Static id="stt_version" taborder="5" expr="expr:&quot;Version: &quot; + application.gvVersion" text="Version" top="7" right="13" width="160" height="32" style="align:right middle;font:9 Verdana;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div05" taborder="8" text="Div00" positionstep="2" left="7" top="7" right="0.78%" height="49">
+          <Layouts>
+            <Layout width="1008" height="49">
+              <ImageViewer id="ImageViewer00" taborder="6" image="URL('Image::img_imgviewer_N.png')" stretch="fit" left="8" top="5" width="140" height="35" style="border:1 none #6b6b6bff ;"/>
+              <Static id="stt_version" taborder="7" expr="expr:&quot;Version: &quot; + application.gvVersion" text="Version" top="7" right="13" width="160" height="32" style="align:right middle;font:9 Verdana;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.sample_step_nexacro14_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	trace("e.fromobject=" + e.fromobject);
+}
+]]></Script>
+  </Form>
+</FDL>

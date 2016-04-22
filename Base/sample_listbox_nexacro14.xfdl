@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+리스트박스를 사용하면 여러 개의 후보값중에서 1개 혹은 여러 개의 값을 선택할 수 있다.
+선택된 값은 리스트박스의 getSelectedCount, getCount 메소드를 사용하여 구할 수 있다.
+
+샘플 코드 사용에 대한 자세한 정보는 아래 링크를 참조하십시오.
+https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
+-->
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="sample_listbox_nexacro" classname="sample_listbox_nexacro" left="0" top="0" width="1024" height="768" titletext="ListBox" onload="sample_listbox_nexacro_onload">
+    <Layouts>
+      <Layout>
+        <ListBox id="ListBox00" taborder="0" left="16" top="128" height="121" innerdataset="@ds_sex" codecolumn="CODE" datacolumn="VALUE" index="-1" width="245" multiselect="true"/>
+        <Static id="Static00" taborder="4" text="Selection mode:" left="16" top="96" height="32" style="font:10 Verdana;" width="160"/>
+        <Button id="Button02" taborder="6" text="selected item" onclick="btn_count_item" left="16" top="256" height="32" width="120"/>
+        <Div id="Div00" taborder="7" text="Div00" left="7" top="7" right="0.78%" height="49">
+          <Layouts>
+            <Layout width="1008" height="49">
+              <ImageViewer id="ImageViewer00" taborder="2" image="URL('Image::img_imgviewer_N.png')" stretch="fit" left="8" top="5" width="140" height="35" style="border:1 none #6b6b6bff ;"/>
+              <Static id="stt_version" taborder="3" expr="expr:&quot;Version: &quot; + application.gvVersion" text="Version" top="7" right="13" width="160" height="32" style="align:right middle;font:9 Verdana;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Radio id="Radio00" taborder="8" left="129" top="96" height="32" columncount="2" innerdataset="@ds_radio" codecolumn="CODE" datacolumn="VALUE" value="M" width="135" onitemchanged="Radio00_onitemchanged"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_sex" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column type="STRING" size="255" id="CODE"/>
+          <Column type="STRING" size="255" id="VALUE"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">M</Col>
+            <Col id="VALUE">Male</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">W</Col>
+            <Col id="VALUE">Female</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">B</Col>
+            <Col id="VALUE">Boy</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">G</Col>
+            <Col id="VALUE">Girl</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">T</Col>
+            <Col id="VALUE">Transgender</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">T</Col>
+            <Col id="VALUE">Transformer</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_radio">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="VALUE" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">M</Col>
+            <Col id="VALUE">MULTI</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">S</Col>
+            <Col id="VALUE">SINGLE</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/* 다중 선택 */
+this.SetMultiSelection = function()
+{	
+	this.ListBox00.set_multiselect(true);	
+}
+
+/* 단일 선택 */
+this.SetSingleSelection = function()
+{
+	this.ListBox00.set_multiselect(false);
+}
+
+/* 리스트박스에서 선택된 아이템 정보를 출력 */
+this.btn_count_item = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var nSCnt = this.ListBox00.getSelectedCount();
+	var sMsg = "Selected record is\n";
+	
+	for(var i=0; i<this.ListBox00.getCount(); i++)
+	{
+		if(this.ListBox00.getSelect(i) == true)
+		{
+			sMsg += "Row index: " + i + "\n";
+		}
+	}
+	
+	sMsg += "Number of selected row: " + nSCnt;
+
+	trace(sMsg);
+}
+
+this.Radio00_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	switch(e.postindex)
+	{
+		case 0:
+			this.SetMultiSelection();
+			break;
+		case 1:
+			this.SetSingleSelection();
+			break;
+		default:
+			trace("UNKNOWN");
+		
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

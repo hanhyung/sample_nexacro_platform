@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+그리드 셀의 edittype 속성을 설정하면 셀의 내용을 여러가지 방식으로 편집할 수 있다.
+
+샘플 코드 사용에 대한 자세한 정보는 아래 링크를 참조하십시오.
+https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
+-->
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="sample_grid_cell_edit_nexacro14" classname="sample_grid_edit_nexacro" left="0" top="0" width="1024" height="768" titletext="Grid &gt; Cell &gt; edittype" style="font:9 Arial;" onload="sample_grid_cell_edit_nexacro14_onload">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" binddataset="ds_edit" useinputpanel="false" onexpanddown="Grid00_onexpanddown" left="16" top="128" height="74" autofittype="col" width="720" autosizingtype="none" cellsizingtype="col" style="font:9 Arial;" locale="en_US">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="72"/>
+                <Column size="72"/>
+                <Column size="120"/>
+                <Column size="72"/>
+                <Column size="80"/>
+                <Column size="72"/>
+                <Column size="96"/>
+                <Column size="96"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="none"/>
+                <Cell col="1" text="normal"/>
+                <Cell col="2" style="color: ;" text="text"/>
+                <Cell col="3" text="date"/>
+                <Cell col="4" text="mask"/>
+                <Cell col="5" text="combo"/>
+                <Cell col="6" text="checkbox"/>
+                <Cell col="7" text="expand"/>
+                <Cell col="8" edittype="readonly" text="readonly"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="normal" edittype="none" text="bind:none"/>
+                <Cell col="1" edittype="normal" text="bind:normal"/>
+                <Cell col="2" edittype="text" editfilter="upper" text="bind:upper" edituseime="local" editimemode="none"/>
+                <Cell col="3" displaytype="date" edittype="date" text="bind:date" locale="en_US"/>
+                <Cell col="4" displaytype="normal" edittype="mask" editfilter="none" text="bind:mask" mask="###-###"/>
+                <Cell col="5" displaytype="combo" edittype="combo" editfilter="integer" text="bind:combo" combodataset="ds_combo" combocodecol="CODE" combodatacol="VALUE" combodisplay="display"/>
+                <Cell col="6" displaytype="checkbox" edittype="checkbox" text="bind:check"/>
+                <Cell col="7" displaytype="normal" edittype="expand" style="expandchar:...;" text="bind:expand" expandshow="show" expandsize="16" expandchar="..."/>
+                <Cell col="8" edittype="readonly" text="bind:readonly">
+                  <Cell displaytype="normal" edittype="readonly" text="bind:readonly" calendardisplay="edit"/>
+                </Cell>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Calendar id="Calendar00" taborder="1" type="monthonly" ondayclick="Calendar00_ondayclick" visible="false" left="48.44%" top="204" height="200" width="240" style="dayfont:9 Arial;font:9 Arial;" oneditclick="Calendar00_oneditclick" locale="en_US" value="null" dateformat="yyyy-MM-dd ddd" onmouseleave="Calendar00_onmouseleave"/>
+        <Static id="Static00" taborder="4" text="Edit status:" left="16" top="96" height="32" style="font:10 Verdana;" width="120"/>
+        <Div id="Div00" taborder="6" text="Div00" left="6" top="7" right="7" height="49">
+          <Layouts>
+            <Layout width="1008" height="49">
+              <ImageViewer id="ImageViewer00" taborder="0" image="URL('Image::img_imgviewer_N.png')" stretch="fit" left="8" top="5" width="140" height="35" style="border:1 none #6b6b6bff ;"/>
+              <Static id="stt_version" taborder="7" expr="expr:&quot;Version: &quot; + application.gvVersion" text="Version" top="7" right="13" width="160" height="32" style="align:right middle;font:9 Verdana;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Radio id="Radio00" taborder="8" left="106" top="96" height="32" width="214" innerdataset="@ds_radio" codecolumn="CODE" datacolumn="VALUE" columncount="2" value="E" onitemchanged="Radio00_onitemchanged" onitemclick="Radio00_onitemclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_edit" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column type="STRING" size="255" id="check"/>
+          <Column type="STRING" size="255" id="combo"/>
+          <Column type="STRING" size="255" id="date"/>
+          <Column type="STRING" size="255" id="expand"/>
+          <Column type="STRING" size="255" id="integer"/>
+          <Column type="STRING" size="255" id="none"/>
+          <Column type="STRING" size="255" id="normal"/>
+          <Column type="STRING" size="256" id="mask"/>
+          <Column type="STRING" size="255" id="upper"/>
+          <Column type="STRING" size="256" id="button"/>
+          <Column id="readonly" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="check">1</Col>
+            <Col id="combo">M</Col>
+            <Col id="date">19911222</Col>
+            <Col id="expand">20150630</Col>
+            <Col id="integer">12345</Col>
+            <Col id="none">a</Col>
+            <Col id="normal">abcd12</Col>
+            <Col id="mask">135873</Col>
+            <Col id="upper">ABCD</Col>
+            <Col id="button">button1</Col>
+            <Col id="readonly">MiPlatform</Col>
+          </Row>
+          <Row>
+            <Col id="check">0</Col>
+            <Col id="combo">W</Col>
+            <Col id="date">19770826</Col>
+            <Col id="expand">20120301</Col>
+            <Col id="integer">67890</Col>
+            <Col id="none">b</Col>
+            <Col id="normal">ABCD12</Col>
+            <Col id="mask">135873</Col>
+            <Col id="upper">EFGH</Col>
+            <Col id="button">button2</Col>
+            <Col id="readonly">XPLATFORM</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_combo" preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true">
+        <ColumnInfo>
+          <Column type="STRING" size="255" id="CODE"/>
+          <Column type="STRING" size="255" id="VALUE"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">M</Col>
+            <Col id="VALUE">Male</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">W</Col>
+            <Col id="VALUE">Female</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_radio">
+        <ColumnInfo>
+          <Column id="CODE" type="STRING" size="256"/>
+          <Column id="VALUE" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CODE">E</Col>
+            <Col id="VALUE">EDITABLE</Col>
+          </Row>
+          <Row>
+            <Col id="CODE">N</Col>
+            <Col id="VALUE">NON-EDITABLE</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="Calendar00" propid="value" datasetid="ds_edit" columnid="expand"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/* 그리드 셀의 편집가능 상태를 설정 */
+this.Radio00_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{	
+	switch(e.postindex)
+	{
+		case 0:	/* Editable */
+			this.SetEditable();
+			break;
+		case 1: /* Non-Editable */
+			this.SetNonEditable();
+			break;
+		default:
+			trace("UNKNOWN");
+	}
+}
+
+/* 그리드의 셀을 편집 가능하도록 설정 */
+this.SetEditable = function()
+{
+	/* 편집 모드를 사용 안함으로 설정 */
+	this.Grid00.setCellProperty("body", 0, "edittype", "none");	
+	
+	/* 편집 모드를 normal 타입으로 설정 */
+	this.Grid00.setCellProperty("body", 1, "edittype", "normal");
+
+	/* 편집 모드를 text 타입으로 설정 */
+	this.Grid00.setCellProperty("body", 2, "edittype", "text");
+	this.Grid00.setCellProperty("body", 2, "editfilter", "upper");
+
+	/* 편집 모드를 date 타입으로 설정 */
+	this.Grid00.setCellProperty("body", 3, "edittype", "date");
+	this.Grid00.setCellProperty("body", 3, "calendardisplay", "edit");
+
+	/* 편집 모드를 mask 타입으로 설정하고 mask 설정 */
+	this.Grid00.setCellProperty("body", 4, "edittype", "mask");
+	this.Grid00.setCellProperty("body", 4, "mask", "###-###");
+
+	/* 편집 모드를 combo 타입으로 설정 */
+	this.Grid00.setCellProperty("body", 5, "edittype", "combo");
+	
+	/* 편집 모드를 checkbox 타입으로 설정 */
+	this.Grid00.setCellProperty("body", 6, "edittype", "checkbox");	
+	
+	/* 편집 모드를 expand 타입으로 설정 */
+	this.Grid00.setCellProperty("body", 7, "edittype", "expand");
+	this.Grid00.setCellProperty("body", 7, "expandchar", "...");
+	this.Grid00.setCellProperty("body", 7, "expandshow", "show");
+	this.Grid00.setCellProperty("body", 7, "expandsize", "16");	
+	
+	/* 편집 모드를 readonly 타입으로 설정 */
+	this.Grid00.setCellProperty("body", 8, "edittype", "readonly");
+
+}
+
+/* 그리드의 셀을 편집하지 못하도록 설정 */
+this.SetNonEditable = function()
+{
+	this.Grid00.setCellProperty("body", 0, "edittype", "none");	
+	
+	this.Grid00.setCellProperty("body", 1, "edittype", "none");
+
+	this.Grid00.setCellProperty("body", 2, "edittype", "none");
+	this.Grid00.setCellProperty("body", 2, "editfilter", "none");
+
+	this.Grid00.setCellProperty("body", 3, "edittype", "none");
+	//this.Grid00.setCellProperty("body", 3, "calendardisplay", "display");
+
+	this.Grid00.setCellProperty("body", 4, "edittype", "none");
+	//this.Grid00.setCellProperty("body", 4, "mask", "");
+				
+	this.Grid00.setCellProperty("body", 5, "edittype", "none");
+	
+	this.Grid00.setCellProperty("body", 6, "edittype", "none");
+	
+	this.Grid00.setCellProperty("body", 7, "edittype", "none");
+	this.Grid00.setCellProperty("body", 7, "expandchar", "");
+	this.Grid00.setCellProperty("body", 7, "expandshow", "hide");
+	this.Grid00.setCellProperty("body", 7, "expandsize", "");
+
+
+	this.Grid00.setCellProperty("body", 8, "edittype", "none");
+	
+}
+
+/* 
+onexpanddown 이벤트 핸들러
+그리드에서 expand로 설정된 셀의 확장버튼을 누를 때 수행
+*/
+this.Grid00_onexpanddown = function(obj:Grid, e:nexacro.GridMouseEventInfo)
+{
+	/* 
+	Index value of the cell in which the event occurred.
+	Index of expand cell is 7.
+	*/
+	if (e.cell == 7)
+	{
+	  /* Getting for position of cell in grid */
+	  var arrPos = this.Grid00.getCellRect(e.row, e.cell); 
+	  
+	  /* Setting for position of calendar */
+	  this.Calendar00.set_top(this.Grid00.getOffsetTop() + arrPos.bottom); 	
+	  this.Calendar00.set_left(this.Grid00.getOffsetLeft() + arrPos.left);
+	  this.Calendar00.set_width(this.Calendar00.width);
+	  this.Calendar00.set_height(this.Calendar00.height);
+	  
+	  this.Calendar00.set_visible(true);
+	}
+	
+}
+
+/* 
+ondayclick 이벤트 핸들러
+날짜를 선택하면 달력을 화면에서 제거
+*/
+this.Calendar00_ondayclick = function(obj:Calendar, e:nexacro.CalendarDayClickEventInfo)
+{
+	this.Calendar00.set_visible(false);
+}
+
+this.Calendar00_onmouseleave = function(obj:Calendar, e:nexacro.MouseEventInfo)
+{
+	this.Calendar00.set_visible(false);	
+}
+]]></Script>
+  </Form>
+</FDL>

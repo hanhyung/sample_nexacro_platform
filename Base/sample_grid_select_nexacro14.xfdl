@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Grid: 다중, 영역 선택과 선택 영역 정보 얻기
+
+그리드의 selecttype 속성을 설정하면 여러 방식으로 셀을 선택할 수 있다.
+
+샘플 코드 사용에 대한 자세한 정보는 아래 링크를 참조하십시오.
+https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
+-->
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="sample_grid_select_nexacro14" classname="sample_grid_select_nexacro" left="0" top="0" width="1024" height="768" titletext="Grid &gt; select">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" binddataset="ds00" useinputpanel="false" autofittype="col" left="16" top="96" height="122" width="200" selecttype="row" onselectchanged="Grid00_onselectchanged">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="COL1"/>
+                <Cell col="1" text="COL2"/>
+                <Cell col="2" text="COL3"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:COL1"/>
+                <Cell col="1" text="bind:COL2"/>
+                <Cell col="2" text="bind:COL3"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="5" left="96" top="64" height="32" style="color:red;font:10 Verdana;" width="240"/>
+        <Static id="Static01" taborder="6" text="selecttype:" left="16" top="64" height="32" width="72" style="font:9 Verdana;"/>
+        <Grid id="Grid01" taborder="1" binddataset="ds01" useinputpanel="false" autofittype="col" left="224" top="96" width="200" height="122" selecttype="cell" onselectchanged="Grid01_onselectchanged">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="COL1"/>
+                <Cell col="1" text="COL2"/>
+                <Cell col="2" text="COL3"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:COL1"/>
+                <Cell col="1" text="bind:COL2"/>
+                <Cell col="2" text="bind:COL3"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid02" taborder="2" binddataset="ds02" useinputpanel="false" autofittype="col" left="432" top="96" width="200" height="122" selecttype="multirow" onselectchanged="Grid02_onselectchanged">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="COL1"/>
+                <Cell col="1" text="COL2"/>
+                <Cell col="2" text="COL3"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:COL1"/>
+                <Cell col="1" text="bind:COL2"/>
+                <Cell col="2" text="bind:COL3"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid03" taborder="3" binddataset="ds03" useinputpanel="false" autofittype="col" left="640" top="96" width="200" height="122" selecttype="area" onselectchanged="Grid03_onselectchanged">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="COL1"/>
+                <Cell col="1" text="COL2"/>
+                <Cell col="2" text="COL3"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:COL1"/>
+                <Cell col="1" text="bind:COL2"/>
+                <Cell col="2" text="bind:COL3"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static02" taborder="21" text="row" left="80" top="216" width="72" height="32" style="align:center middle;font:9 Verdana;"/>
+        <Static id="Static03" taborder="22" text="cell" left="288" top="216" width="72" height="32" style="align:center middle;font:9 Verdana;"/>
+        <Static id="Static04" taborder="23" text="multirow" left="496" top="216" width="72" height="32" style="align:center middle;font:9 Verdana;"/>
+        <Static id="Static05" taborder="24" text="area" left="704" top="216" width="72" height="32" style="align:center middle;font:9 Verdana;"/>
+        <Div id="Div00" taborder="25" text="Div00" left="7" top="7" right="0.78%" height="49">
+          <Layouts>
+            <Layout width="1008" height="49">
+              <ImageViewer id="ImageViewer00" taborder="2" image="URL('Image::img_imgviewer_N.png')" stretch="fit" left="8" top="5" width="140" height="35" style="border:1 none #6b6b6bff ;"/>
+              <Static id="stt_version" taborder="3" expr="expr:&quot;Version: &quot; + application.gvVersion" text="Version" top="7" right="13" width="160" height="32" style="align:right middle;font:9 Verdana;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" id="ds00">
+        <ColumnInfo>
+          <Column type="STRING" size="256" id="COL1"/>
+          <Column type="STRING" size="256" id="COL2"/>
+          <Column type="STRING" size="256" id="COL3"/>
+          <Column type="STRING" size="256" id="COL4"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL1">1</Col>
+            <Col id="COL2">2</Col>
+            <Col id="COL3">A</Col>
+            <Col id="COL4">B</Col>
+          </Row>
+          <Row>
+            <Col id="COL1">3</Col>
+            <Col id="COL2">4</Col>
+            <Col id="COL3">C</Col>
+            <Col id="COL4">D</Col>
+          </Row>
+          <Row>
+            <Col id="COL1">5</Col>
+            <Col id="COL2">6</Col>
+            <Col id="COL3">E</Col>
+            <Col id="COL4">F</Col>
+          </Row>
+          <Row>
+            <Col id="COL1">가</Col>
+            <Col id="COL2">나</Col>
+            <Col id="COL3">다</Col>
+            <Col id="COL4">라</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" id="ds01">
+        <ColumnInfo>
+          <Column type="STRING" size="256" id="COL1"/>
+          <Column type="STRING" size="256" id="COL2"/>
+          <Column type="STRING" size="256" id="COL3"/>
+          <Column type="STRING" size="256" id="COL4"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL1">1</Col>
+            <Col id="COL2">2</Col>
+            <Col id="COL3">A</Col>
+            <Col id="COL4">B</Col>
+          </Row>
+          <Row>
+            <Col id="COL1">3</Col>
+            <Col id="COL2">4</Col>
+            <Col id="COL3">C</Col>
+            <Col id="COL4">D</Col>
+          </Row>
+          <Row>
+            <Col id="COL1">5</Col>
+            <Col id="COL2">6</Col>
+            <Col id="COL3">E</Col>
+            <Col id="COL4">F</Col>
+          </Row>
+          <Row>
+            <Col id="COL1">가</Col>
+            <Col id="COL2">나</Col>
+            <Col id="COL3">다</Col>
+            <Col id="COL4">라</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" id="ds02">
+        <ColumnInfo>
+          <Column type="STRING" size="256" id="COL1"/>
+          <Column type="STRING" size="256" id="COL2"/>
+          <Column type="STRING" size="256" id="COL3"/>
+          <Column type="STRING" size="256" id="COL4"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL1">1</Col>
+            <Col id="COL2">2</Col>
+            <Col id="COL3">A</Col>
+            <Col id="COL4">B</Col>
+          </Row>
+          <Row>
+            <Col id="COL1">3</Col>
+            <Col id="COL2">4</Col>
+            <Col id="COL3">C</Col>
+            <Col id="COL4">D</Col>
+          </Row>
+          <Row>
+            <Col id="COL1">5</Col>
+            <Col id="COL2">6</Col>
+            <Col id="COL3">E</Col>
+            <Col id="COL4">F</Col>
+          </Row>
+          <Row>
+            <Col id="COL1">가</Col>
+            <Col id="COL2">나</Col>
+            <Col id="COL3">다</Col>
+            <Col id="COL4">라</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset preload="true" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" id="ds03">
+        <ColumnInfo>
+          <Column type="STRING" size="256" id="COL1"/>
+          <Column type="STRING" size="256" id="COL2"/>
+          <Column type="STRING" size="256" id="COL3"/>
+          <Column type="STRING" size="256" id="COL4"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="COL1">1</Col>
+            <Col id="COL2">2</Col>
+            <Col id="COL3">A</Col>
+            <Col id="COL4">B</Col>
+          </Row>
+          <Row>
+            <Col id="COL1">3</Col>
+            <Col id="COL2">4</Col>
+            <Col id="COL3">C</Col>
+            <Col id="COL4">D</Col>
+          </Row>
+          <Row>
+            <Col id="COL1">5</Col>
+            <Col id="COL2">6</Col>
+            <Col id="COL3">E</Col>
+            <Col id="COL4">F</Col>
+          </Row>
+          <Row>
+            <Col id="COL1">가</Col>
+            <Col id="COL2">나</Col>
+            <Col id="COL3">다</Col>
+            <Col id="COL4">라</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/* row selection */
+this.Grid00_onselectchanged = function(obj:Grid, e:nexacro.GridSelectEventInfo)
+{
+	this.Static00.set_text("row");
+	
+	var arrRow = this.Grid00.getSelectedRows();
+
+	var sMsg = "\nThe index of selected row: " + arrRow[0];	
+	trace(sMsg);
+
+}
+
+/* cell selection */
+this.Grid01_onselectchanged = function(obj:Grid, e:nexacro.GridSelectEventInfo)
+{
+	this.Static00.set_text("cell");
+	
+	var sMsg = "\nThe position of selected cell: (" + e.col + ", " + e.row + ")";
+	trace(sMsg);
+
+}
+
+/* multiple row selection */
+this.Grid02_onselectchanged = function(obj:Grid, e:nexacro.GridSelectEventInfo)
+{
+	this.Static00.set_text("multirow");
+
+	/* returns the selected dataset row as an array */
+	var arrRow = this.Grid02.getSelectedDatasetRows();
+	var nScnt = arrRow.length;
+	
+	var sMsg  = "\nSelected row is ";
+
+	for (var i = 0; i < nScnt; i++)
+	{
+		sMsg += arrRow[i];
+		
+		if(i !== nScnt-1)
+		{
+			sMsg += ", ";
+		}
+	}
+	sMsg += "\nThe number of selected row : " + nScnt;
+			
+	trace(sMsg);
+	
+}
+
+/* area selection */
+this.Grid03_onselectchanged = function(obj:Grid, e:nexacro.GridSelectEventInfo)
+{
+	this.Static00.set_text("area");
+
+	var sMsg = "";
+
+	/* selected start column and row */
+	sMsg =  "\nStart = " + "Column : " + this.Grid03.selectstartcol 
+	                   + ", Row : " + this.Grid03.selectstartrow;
+	sMsg += "\n";
+	
+	/* selected end column and row */
+	sMsg += "End   = " + "Column : " + this.Grid03.selectendcol 
+	                   + ", Row : " + this.Grid03.selectendrow;
+	
+	trace(sMsg);
+	
+}
+]]></Script>
+  </Form>
+</FDL>

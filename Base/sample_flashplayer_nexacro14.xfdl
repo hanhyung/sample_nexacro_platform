@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+FlashPlayer 객체의 생성과 사용
+
+플래쉬 플레이어 컴포넌트를 생성한 후
+movie 속성에 플래쉬 파일(swf)의 URL을 설정한다.
+ 
+샘플 코드 사용에 대한 자세한 정보는 아래 링크를 참조하십시오.
+https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
+-->
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="sample_flashplayer_nexacro14" classname="test_flashplayer" left="0" top="0" width="1024" height="768" titletext="FlashPlayer">
+    <Layouts>
+      <Layout>
+        <Button id="btn_play" taborder="0" text="PLAY" onclick="btn_play_onclick" left="15" top="78" height="32" width="128"/>
+        <Button id="btn_stop" taborder="3" text="STOP" onclick="btn_stop_onclick" left="150" top="78" height="32" width="128"/>
+        <Div id="Div00" taborder="5" text="Div00" left="7" top="7" right="7" height="49">
+          <Layouts>
+            <Layout width="1008" height="49">
+              <ImageViewer id="ImageViewer00" taborder="6" image="URL('Image::img_imgviewer_N.png')" stretch="fit" left="8" top="5" width="140" height="35" style="border:1 none #6b6b6bff ;"/>
+              <Static id="stt_version" taborder="7" expr="expr:&quot;Version: &quot; + application.gvVersion" text="Version" top="7" right="13" width="160" height="32" style="align:right middle;font:9 Verdana;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[this.btn_play_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	// Create Object 
+	var objFlashPlayer = new FlashPlayer();	
+	objFlashPlayer.init("FlashPlayer01", "absolute", 15, 96, 480, 240, null, null);
+
+	// Add Object to Parent Form  
+	this.addChild("FlashPlayer01", objFlashPlayer); 
+	 
+	// Insert Object to Parent Form  
+	this.insertChild(1, "FlashPlayer01", objFlashPlayer); 
+
+	this.FlashPlayer01.set_visible(true);
+	this.FlashPlayer01.set_playing((this.FlashPlayer01.playing == false) ? true : false);
+	this.FlashPlayer01.set_loop((this.FlashPlayer01.loop == false) ? true : false);	 	
+	this.FlashPlayer01.set_movie("http://nexacro.github.io/Image/main.swf");
+	//this.FlashPlayer00.set_movie(application.gvServerID + "/Image/getEvent.swf");
+	
+	// Show Object
+	this.FlashPlayer01.show();
+
+}
+
+
+this.btn_stop_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+	// Remove FlashPlayer Object form parent form
+	var objFlashPlayer = this.removeChild("FlashPlayer01");
+	if(objFlashPlayer)
+	{
+		trace("FlashPlayer01 removed from container");
+		
+		// Destroy FlashPlayer Object
+		if(objFlashPlayer.destroy())
+		{			
+			objFlashPlayer = null;
+			trace("FlashPlayer01 destroy succeed.");
+		}
+		else
+		{
+			trace("FlashPlayer01 destroy failed.");
+		}		
+	}
+	else
+	{
+		trace("removeChild(\"FlashPlayer01\") failed.");
+	}
+
+}
+]]></Script>
+  </Form>
+</FDL>

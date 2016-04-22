@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Transaction: transaction 메소드를 사용한 서비스 호출과 콜백 함수를 통한 결과 처리
+
+샘플 코드 사용에 대한 자세한 정보는 아래 링크를 참조하십시오.
+https://github.com/nexacro/sample_nexacro_platform/blob/master/readme.md
+-->
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="sample_transaction_nexacro14" classname="transaction_local" left="0" top="0" width="1024" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Grid id="Grid00" taborder="0" useinputpanel="false" left="16" top="96" height="124" binddataset="ds_customers" autofittype="col" autosizingtype="none" style="border:1 solid #838383ff,1 solid #c9c6c3ff,1 solid #c9c6c3ff,1 solid #c9c6c3ff;" width="800">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="50"/>
+                <Column size="80"/>
+                <Column size="120"/>
+                <Column size="70"/>
+                <Column size="100"/>
+                <Column size="60"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="id"/>
+                <Cell col="1" text="name"/>
+                <Cell col="2" text="email"/>
+                <Cell col="3" text="phone"/>
+                <Cell col="4" text="comp_name"/>
+                <Cell col="5" text="department"/>
+                <Cell col="6" text="comp_phone"/>
+                <Cell col="7" text="comp_addr"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:id"/>
+                <Cell col="1" text="bind:name"/>
+                <Cell col="2" text="bind:email"/>
+                <Cell col="3" text="bind:phone"/>
+                <Cell col="4" text="bind:comp_name"/>
+                <Cell col="5" text="bind:department"/>
+                <Cell col="6" text="bind:comp_phone"/>
+                <Cell col="7" text="bind:comp_addr"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_inquiry" taborder="1" text="Inquiry" left="16" top="228" height="32" onclick="btn_inquiry_onclick" width="120"/>
+        <Div id="Div00" taborder="2" text="Div00" left="7" top="7" right="6" height="49">
+          <Layouts>
+            <Layout width="1008" height="49">
+              <ImageViewer id="ImageViewer00" taborder="25" image="URL('Image::img_imgviewer_N.png')" stretch="fit" left="8" top="5" width="140" height="35" style="border:1 none #6b6b6bff ;"/>
+              <Static id="stt_version" taborder="26" expr="expr:&quot;Version: &quot; + application.gvVersion" text="Version" top="7" right="13" width="160" height="32" style="align:right middle;font:9 Verdana;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_customers">
+        <ColumnInfo>
+          <Column id="id" type="STRING" size="4"/>
+          <Column id="name" type="STRING" size="16"/>
+          <Column id="email" type="STRING" size="32"/>
+          <Column id="phone" type="STRING" size="16"/>
+          <Column id="comp_name" type="STRING" size="32"/>
+          <Column id="department" type="STRING" size="32"/>
+          <Column id="comp_phone" type="STRING" size="16"/>
+          <Column id="comp_addr" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/* transaction 메소드를 사용한 서비스 호출 */
+this.btn_inquiry_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{	
+     var id = "search";	/* transaction ID */
+     var url = "http://nexacro.github.io/Service/sample.xml";	/* 서비스 URL */
+     var reqDs = "";	/* 보낼 데이터셋 ID */
+     var respDs = "ds_customers=customers";	/* 받을 데이터셋 ID */
+     var args = "";	/* arguments */
+     var callback = "fn_callback";	/* 수행이 완료된 후 호출되는 콜백 함수 */
+    
+     this.transaction(id, url, reqDs, respDs, args, callback);   
+     	
+}
+
+
+/* 트랜잭션 완료 후 수행되는 콜백 함수 */
+this.fn_callback = function(id, code, message)
+{
+     if (code == 0)
+     {
+          this.alert(this.ds_customers.rowcount + " numbers of data have been found.");
+          trace(this.ds_customers.rowcount + " numbers of data have been found.");
+     }
+     else
+     {
+          this.alert("Error["+code+"]:"+message);
+          trace("Error["+code+"]:"+message);
+     }
+     
+}
+]]></Script>
+  </Form>
+</FDL>
